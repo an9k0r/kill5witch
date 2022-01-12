@@ -1,4 +1,4 @@
 ---
-layout: windows_ad_lab_series
+layout: page
 title: Windows AD Lab Series TEST
 ---
