@@ -11,9 +11,7 @@ I plan to document writeups from platforms like hackthebox.eu and tryhackme from
 
 From time to time i intent to post guides from tools or techniques that i have found useful.
 
-{% hint style="info" %}
+**IMPORTANT**
 Content of this blog is meant for education purposes only! Techniques here should not be used to cause any harm.
-
 Content presented on this blog has been written in my free time, as well as research done and has nothing to do with my employer or my current position!
-{% endhint %}
 
