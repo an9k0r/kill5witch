@@ -1,6 +1,6 @@
 ---
 layout: bto
 title: Blue Team CTFs
-icon: fas fa-shield
+icon: fas fa-anchor
 order: 3
 ---
