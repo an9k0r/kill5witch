@@ -1,7 +1,7 @@
 ---
 title: Blogging
 icon: fas fa-info-circle
-order: 4
+order: 6
 ---
 Hey there!
 
