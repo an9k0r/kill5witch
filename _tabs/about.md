@@ -3,11 +3,13 @@ title: About
 icon: fas fa-info-circle
 order: 7
 ---
-Hey there!
+Hello and welcome to my blog!
 
-I won't spend much words to introduce myself, you can just follow me on LinkedIn or Twitter if you find the content useful... My Name is Luka (yeah, that's also a old song), and i don't live on live on the second floor... Ok let's get serious now;) ! ~~I am at the time of writing on a mission of getting OSCP certified, but in a fact i want to go further and concentrate on Web Application Security~~. (Update on 4.6.2021) I am OSCP, OSWE, eCPPTv2 Certified and working towards OSEP Certification from Offensive Security.
+Just a quick introduction.
+My name is Luka and i'm currently working as a blue teamer. I switched from working with security/network devices into cyber security in mid 2021. In order for that to happen i've solved many HTB and THM machines and pursued courses and certifications (in order to learn!) like eCPPT, OSCP, OSWE, OSEP.
 
-I plan to document writeups from platforms like hackthebox.eu and tryhackme from boxes that are special in some way. I will however always try to keep it simple.
+Even as a blue teamer i stillsolve Hack the Box boxes for which i'll be dropping Writeups here for machines that i've done AND found worthy having an actual writeup/reference in future.
+I'm also active on [BlueTeamLabsOnline](https://blueteamlabs.online/) and i'll try to publish writeups of retired machines as well.
 
 From time to time i intent to post guides from tools or techniques that i have found useful.
 
