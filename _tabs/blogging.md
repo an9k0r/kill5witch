@@ -1,7 +1,7 @@
 ---
 title: Blogging
 icon: fas fa-info-circle
-order: 6
+order: 1
 ---
 {% include lang.html %}
 
