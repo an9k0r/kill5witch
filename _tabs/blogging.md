@@ -3,15 +3,98 @@ title: Blogging
 icon: fas fa-info-circle
 order: 6
 ---
-Hey there!
+{% include lang.html %}
 
-I won't spend much words to introduce myself, you can just follow me on LinkedIn or Twitter if you find the content useful... My Name is Luka (yeah, that's also a old song), and i don't live on live on the second floor... Ok let's get serious now;) ! ~~I am at the time of writing on a mission of getting OSCP certified, but in a fact i want to go further and concentrate on Web Application Security~~. (Update on 4.6.2021) I am OSCP, OSWE, eCPPTv2 Certified and working towards OSEP Certification from Offensive Security.
+{% assign pinned = site.posts | where: "pin", "true" %}
+{% assign default = site.posts | where_exp: "item", "item.pin != true" %}
 
-I plan to document writeups from platforms like hackthebox.eu and tryhackme from boxes that are special in some way. I will however always try to keep it simple.
+{% assign posts = "" | split: "" | where: "tag", "Blogging" %}
 
-From time to time i intent to post guides from tools or techniques that i have found useful.
+<!-- Get pinned posts -->
 
-**IMPORTANT**
-Content of this blog is meant for education purposes only! Techniques here should not be used to cause any harm.
-Content presented on this blog has been written in my free time, as well as research done and has nothing to do with my employer or my current position!
+{% assign offset = paginator.page | minus: 1 | times: paginator.per_page %}
+{% assign pinned_num = pinned.size | minus: offset %}
 
+{% if pinned_num > 0 %}
+  {% for i in (offset..pinned.size) limit: pinned_num %}
+    {% assign posts = posts | push: pinned[i] %}
+  {% endfor %}
+{% else %}
+  {% assign pinned_num = 0 %}
+{% endif %}
+
+
+<!-- Get default posts -->
+
+{% assign default_beg = offset | minus: pinned.size %}
+
+{% if default_beg < 0 %}
+  {% assign default_beg = 0 %}
+{% endif %}
+
+{% assign default_num = paginator.posts | size | minus: pinned_num  %}
+{% assign default_end = default_beg | plus: default_num | minus: 1 %}
+
+{% if default_num > 0 %}
+  {% for i in (default_beg..default_end) %}
+    {% assign posts = posts | push: default[i] %}
+  {% endfor %}
+{% endif %}
+
+<div id="post-list">
+
+{% for post in posts %}
+
+  <div class="post-preview">
+    <h1>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        {% include no-linenos.html content=post.content %}
+        {{ content | markdownify | strip_html | truncate: 200 | escape }}
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+
+      <div class="mr-auto">
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        {% include timeago.html date=post.date tooltip=true %}
+
+        <!-- time to read -->
+        <i class="far fa-clock fa-fw"></i>
+        {% include read-time.html content=post.content %}
+
+        <!-- categories -->
+        {% if post.categories.size > 0 %}
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          {% for category in post.categories %}
+            {{ category }}
+            {%- unless forloop.last -%},{%- endunless -%}
+          {% endfor %}
+          </span>
+        {% endif %}
+      </div>
+
+      {% if post.pin %}
+      <div class="pin">
+        <i class="fas fa-thumbtack fa-fw"></i>
+        <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
+      </div>
+      {% endif %}
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+{% endfor %}
+
+</div> <!-- #post-list -->
+
+{% if paginator.total_pages > 0 %}
+  {% include post-paginator.html %}
+{% endif %}
