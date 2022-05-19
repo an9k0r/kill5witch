@@ -1,10 +1,17 @@
 ---
-description: Reverse and Bind Proxy using Chisel // There is no exploitation involved!
+title: Using Chisel
+author:
+  name: kill5witch
+  link: https://github.com/an9k0r
+date: 2021-12-25 11:33:00 +0200
+categories: [Blog, Guides]
+tags: [Tunneling, Pivoting]
+math: true
+mermaid: true
 ---
+**Reverse and Bind Proxy using Chisel // There is no exploitation involved!**
 
-# Chisel Guide
-
-## Lab Setup <a href="#lab-setup" id="lab-setup"></a>
+# Lab Setup <a href="#lab-setup" id="lab-setup"></a>
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MIxcYhWyGCoV7j2xCX\_%2F-MMMa\_l\_gM83qoxbcIyz%2F-MMMakUk24zIFBd6Wnmp%2Fimage.png?alt=media\&token=aba8c540-8cb6-4ee8-a89e-12acd5c029b6)
 
@@ -17,7 +24,7 @@ Linux Server / Pivot#2 Interface #2 = 192.168.50.129
 WebServer = 192.168.50.128
 ```
 
-## Download and Installation
+# Download and Installation
 
 Chisel can be downloaded here: [https://github.com/jpillora/chisel](https://github.com/jpillora/chisel)
 
@@ -49,7 +56,7 @@ upx brute ./chisel-x86.exe
 upx brute ./chisel-x64.exe
 ```
 
-## Bind Proxy
+# Bind Proxy
 
 **(Exfiltration Scenario - send data through Pivot#1 (Win7) to Kali where there is no direct access from e.g. corporate network)\* This is however just one use case**
 
@@ -85,9 +92,9 @@ I am now able to send anything to Kali over Win7 tunnel
 
 ![](https://gblobscdn.gitbook.com/assets%2Fos-cybersec%2F-MM5rry18v5IEAyTMx07%2F-MM5tW8\_zyQpD5b43EdJ%2F4.png?alt=media)
 
-## **Reverse** <a href="#reverse" id="reverse"></a>
+# **Reverse** <a href="#reverse" id="reverse"></a>
 
-### Simple Reverse Port Forward / Single Pivot
+## Simple Reverse Port Forward / Single Pivot
 
 The biggest difference compared to bind proxy is where the listener will reside at, and that is on the server. The tunnel connection will also get initated from the victim/Pivot#1/win7.
 
@@ -115,7 +122,7 @@ Test - i am able to reach Linux Server on Port 80 from Kali through Win7/Pivot#1
 
 ![](https://gblobscdn.gitbook.com/assets%2Fos-cybersec%2F-MM5rry18v5IEAyTMx07%2F-MM5tW8gPpsqXNDLWeZZ%2F11.png?alt=media)
 
-### Double Pivot using SOCKS
+## Double Pivot using SOCKS
 
 In order to reach Webserver which is 2 "hops" away i need to pivot through Win7/Pivot#1 and Linux Server/Pivot#2. (i have chisel on both already - there is no Exploitation involved).&#x20;
 
@@ -160,7 +167,7 @@ And i can reach webserver on 192.168.50.128:80
 |S-chain|-<>-127.0.0.1:3080-<>-192.168.118.176:7080-<><>-192.168.50.128:80-<><>-OK
 ```
 
-### **Using Reverse to download chisel on Pivot#2 from Kali (no direct access)**
+## **Using Reverse to download chisel on Pivot#2 from Kali (no direct access)**
 
 Lets say i want to download something from the Kali (for example the chisel itself) over Pivot#1 which is in my case Win7.
 
@@ -179,6 +186,6 @@ Connection from Linux Server will now go through Pivot#1 (Win7) and if i set a w
 
 ![](https://gblobscdn.gitbook.com/assets%2Fos-cybersec%2F-MM5rry18v5IEAyTMx07%2F-MM5tW8cMiCcf3naph9x%2F7.png?alt=media)
 
-## Summary <a href="#summary" id="summary"></a>
+# Summary <a href="#summary" id="summary"></a>
 
 Chisel is a great tool no doubts on that but the message i'd like to put out there is: Practice Pivoting in your own lab because it is easier to troubleshoot if somethings does not work as expected. I used 3 VMs (doesnt really matter if Linux or Windows).&#x20;
