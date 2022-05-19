@@ -6,9 +6,7 @@ order: 1
 {% include lang.html %}
 
 {% assign pinned = site.posts | where: "pin", "true" %}
-<!--{% assign default = site.posts | where_exp: "item", "item.pin != true" %}-->
-{% assign default = site.posts | where: "site.categories", "Blogging" %}
-
+{% assign default = site.posts | where_exp: "item", "item.pin != true" %}
 
 {% assign posts = "" | split: "" %}
 
