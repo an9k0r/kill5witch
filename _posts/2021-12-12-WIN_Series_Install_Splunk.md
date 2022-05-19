@@ -1,16 +1,15 @@
 ---
-title: Installing Splunk Enterprise on CentOS 7 and Universal Forwarder on Windows
+title: Installing Splunk Enterprise on CentOS 7 and Universal Forwarder on Windows with Sysmon
 author:
   name: kill5witch
   link: https://github.com/an9k0r
 date: 2021-12-25 11:33:00 +0200
 categories: [Blogging,Windows_Sec_Splunk_Series]
-tags: [Splunk, Sysmon]
+tags: [Splunk, Sysmon, Logging]
 math: true
 mermaid: true
 ---
-**In this section i will be installing Splunk Enterprise on CENTOS 7 and Universal Forwarder on Windows.**
-
+**In this section i will be installing Splunk Enterprise on CENTOS 7 and Universal Forwarder on Windows. Last part is all about setting up Sysmon on windows machine**
 # Installing Splunk and getting first Logs
 ## Installing Splunk Enterprise on CentOS 7
 
@@ -23,7 +22,7 @@ Linux localhost.localdomain 3.10.0-1127.el7.x86_64 #1 SMP Tue Mar 31 23:36:51 UT
 ```
 (Installing on Debian-based Linux system should not be much different)
 
-So let's grab Splunk now
+So let's grab the Splunk now...
 
 ### Downloading Splunk from splunk.com
 
