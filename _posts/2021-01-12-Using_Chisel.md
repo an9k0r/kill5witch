@@ -4,7 +4,7 @@ author:
   name: kill5witch
   link: https://github.com/an9k0r
 date: 2021-12-25 11:33:00 +0200
-categories: [Blogging, Guides]
+categories: [Blogging]
 tags: [Tunneling, Pivoting]
 math: true
 mermaid: true
