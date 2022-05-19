@@ -8,7 +8,7 @@ order: 1
 {% assign pinned = site.posts | where: "pin", "true" %}
 {% assign default = site.posts | where_exp: "item", "item.pin != true" %}
 
-{% assign posts = "" | split: "" | where: "categories", "Blogging" %}
+{% assign posts = "" | split: "" %}
 {% assign blogging_posts = posts | where: "categories", "Blogging" %}
 <!-- Get pinned posts -->
 
