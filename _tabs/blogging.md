@@ -6,10 +6,11 @@ order: 1
 {% include lang.html %}
 
 {% assign pinned = site.posts | where: "pin", "true" %}
-{% assign default = site.posts | where_exp: "item", "item.pin != true" %}
+<!--{% assign default = site.posts | where_exp: "item", "item.pin != true" %}-->
+{% assign default = site.posts | where_exp: "item", "item.pin != true" | where: "categories", "Blogging" %}
 
 {% assign posts = "" | split: "" %}
-{% assign blogging_posts = posts | where: "categories", "Blogging" %}
+
 <!-- Get pinned posts -->
 
 {% assign offset = paginator.page | minus: 1 | times: paginator.per_page %}
@@ -32,12 +33,12 @@ order: 1
   {% assign default_beg = 0 %}
 {% endif %}
 
-{% assign default_num = paginator.blogging_posts | size | minus: pinned_num  %}
+{% assign default_num = paginator.posts | size | minus: pinned_num  %}
 {% assign default_end = default_beg | plus: default_num | minus: 1 %}
 
 {% if default_num > 0 %}
   {% for i in (default_beg..default_end) %}
-    {% assign posts = blogging_posts | push: default[i] %}
+    {% assign posts = posts | push: default[i] %}
   {% endfor %}
 {% endif %}
 
