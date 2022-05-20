@@ -3,7 +3,7 @@ title: Malicious PowerShell Analysis
 author:
   name: kill5witch
   link: https://github.com/an9k0r
-date: 2022-19-05 17:33:00 +0100
+date: 2022-05-19 17:33:00 +0100
 categories: [BlueTeamLabs, Incident Response]
 tags: [PowerShell, CyberChef, Malware]
 math: true
