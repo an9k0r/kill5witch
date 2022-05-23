@@ -25,7 +25,7 @@ Anyways let's get going.
 
 # Finding PortScan
 After opening the PCAP and checking Statistics, it's obvious that there is one IP that appears to be running port scan.
-![](2022-05-23-15-27-03.png)
+![](/assets/images/2022-05-23-15-27-03.png)
 
 Packets are almost the same lenght and destination ports are random and in `lower` range. We can sort on low/high ports just by clicking on `Port B` in my case. If there were other IPs involved, we might need to filter on IP first.
 
@@ -36,13 +36,13 @@ Packets are almost the same lenght and destination ports are random and in `lowe
 ## Diving deeper
 In order what kind of scan it is, we can follow TCP flow and as it appears it's TCP with just `SYN` flag set.
 
-![](2022-05-23-15-34-36.png)
+![](/assets/images/2022-05-23-15-34-36.png)
 
 > What is the type of port scan conducted? (1 points): TCP SYN
 
 To actually get which ports are open, we can assume that more packets were sent between victim and the client. Just by checking Statistics, this appear to be the 22, 80. Perhaps worth mentioning, there was communication to 4422 (from victim to attackers machine!)
 
-![](2022-05-23-15-38-50.png)
+![](/assets/images/2022-05-23-15-38-50.png)
 
 ## Finding TTPs
 As many tools use specific UserAgent Headers, they will stand out if we focus on them. To get `User Agent` as a column, just right-click it on any http packet and choose `Apply as a Column`. Beforehand i filtered on TCP.PORT, IP.SRC and HTTP 
@@ -50,14 +50,14 @@ As many tools use specific UserAgent Headers, they will stand out if we focus on
 (tcp.port==80 && http) && (ip.src == 10.251.96.4)
 ```
 
-![](2022-05-23-15-45-00.png)
+![](/assets/images/2022-05-23-15-45-00.png)
 
 > Two more tools were used to perform reconnaissance against open ports, what were they? (1 points): gobuster 3.0.1, sqlmap 1.4.7
 
 ## Initial Foothold analysis
 Attacker used `editprofile.php` which most probably triggered form `upload.php`. Actual commands were executed in `/uploads/dbfunctions.php`
 
-![](2022-05-23-15-52-07.png)
+![](/assets/images/2022-05-23-15-52-07.png)
 
 > What is the name of the php file through which the attacker uploaded a web shell? (1 points): editprofile.php
 
@@ -73,4 +73,4 @@ Attacker used `editprofile.php` which most probably triggered form `upload.php`.
 
 Checking the packet 16102 which sent `upload.php` we can see what uploaded file was:
 
-![](2022-05-23-15-54-37.png)
+![](/assets/images/2022-05-23-15-54-37.png)
