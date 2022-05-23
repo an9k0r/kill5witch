@@ -1,5 +1,5 @@
 ---
-title: [Investigation] - Malicious PowerShell Analysis
+title: (Investigation) - Malicious PowerShell Analysis
 author:
   name: kill5witch
   link: https://github.com/an9k0r
