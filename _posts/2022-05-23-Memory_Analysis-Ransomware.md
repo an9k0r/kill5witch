@@ -1,5 +1,5 @@
 ---
-title: Memory Analysis - Ransomware
+title: [Investigation] - Memory Analysis - Ransomware
 author:
   name: kill5witch
   link: https://github.com/an9k0r
