@@ -1,5 +1,5 @@
 ---
-title: (Investigation) - Network Analysis - Web Shell
+title: (Challenge) - Network Analysis - Web Shell
 author:
   name: kill5witch
   link: https://github.com/an9k0r

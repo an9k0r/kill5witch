@@ -1,5 +1,5 @@
 ---
-title: (Investigation) - Suspicious USB Stick
+title: (Challenge) - Suspicious USB Stick
 author:
   name: kill5witch
   link: https://github.com/an9k0r
