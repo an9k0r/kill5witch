@@ -1,5 +1,5 @@
 ---
-title: (Challenge) - Suspicious USB Stick
+title: (BTLO/Challenge) - Suspicious USB Stick
 author:
   name: kill5witch
   link: https://github.com/an9k0r
@@ -15,6 +15,7 @@ image:
   alt: image alternative text
 ---
 **One of our clients informed us they recently suffered an employee data breach...can you check the contents on the USB drive?**
+- CTF is hosted on https://blueteamlabs.online/
 # Scenario
 > One of our clients informed us they recently suffered an employee data breach. As a startup company, they had a constrained budget allocated for security and employee training. I visited them and spoke with the relevant stakeholders. I also collected some suspicious emails and a USB drive an employee found on their premises. While I am analyzing the suspicious emails, can you check the contents on the USB drive?   
 

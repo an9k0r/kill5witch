@@ -1,5 +1,5 @@
 ---
-title: (Challenge) - Malicious PowerShell Analysis
+title: (BTLO/Challenge) - Malicious PowerShell Analysis
 author:
   name: kill5witch
   link: https://github.com/an9k0r

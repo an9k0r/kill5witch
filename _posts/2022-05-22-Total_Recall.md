@@ -1,5 +1,5 @@
 ---
-title: Total Recall
+title: (BTLO/Investigation) - Total Recall
 author:
   name: kill5witch
   link: https://github.com/an9k0r
@@ -15,6 +15,7 @@ image:
   alt: image alternative text
 ---
 **Microsoft Defender Antivirus has been there for over a decade now. It provides security against known threats until it has not been tampered with.**
+- CTF is hosted on https://blueteamlabs.online/
 # Scenario
 > Unfortunately an Account Executive was just got let go from the company due to downsizing efforts. Before wiping his machine to be reissued in the future a threat hunter wants to conduct memory analysis after other suspicious activity was observed coming from the user in question before his termination was confirmed.
 > Hopefully there’s nothing bad, but this could be an incident waiting to be discovered. See if you can find any malicious activity on their system. 

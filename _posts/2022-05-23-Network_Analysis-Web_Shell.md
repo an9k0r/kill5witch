@@ -1,5 +1,5 @@
 ---
-title: (Challenge) - Network Analysis - Web Shell
+title: (BTLO/Challenge) - Network Analysis - Web Shell
 author:
   name: kill5witch
   link: https://github.com/an9k0r
@@ -15,6 +15,7 @@ image:
   alt: image alternative text
 ---
 **The SOC received an alert in their SIEM for ‘Local to Local Port Scanning’ where an internal private IP began scanning another internal system.**
+- CTF is hosted on https://blueteamlabs.online/
 # Scenario
 > The SOC received an alert in their SIEM for ‘Local to Local Port Scanning’ where an internal private IP began scanning another internal system.   
 
