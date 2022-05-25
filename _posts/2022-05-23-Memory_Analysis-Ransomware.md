@@ -1,5 +1,5 @@
 ---
-title: (Challenge) - Memory Analysis - Ransomware
+title: (BTLO/Challenge) - Memory Analysis - Ransomware
 author:
   name: kill5witch
   link: https://github.com/an9k0r
@@ -15,6 +15,7 @@ image:
   alt: image alternative text
 ---
 **The Account Executive called the SOC earlier and sounds very frustrated and angry. He stated he can’t access any files on his computer and keeps receiving a pop-up stating that his files have been encrypted.**
+- CTF is hosted on https://blueteamlabs.online/
 # Scenario
 > The Account Executive called the SOC earlier and sounds very frustrated and angry. He stated he can’t access any files on his computer and keeps receiving a pop-up stating that his files have been encrypted. You disconnected the computer from the network and extracted the memory dump of his machine and started analyzing it with Volatility. Continue your investigation to uncover how the ransomware works and how to stop it!    
 
