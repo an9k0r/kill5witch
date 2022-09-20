@@ -5,11 +5,14 @@ order: 7
 ---
 Hello and welcome to my blog!
 
-Just a quick introduction.
-My name is Luka and i'm currently working as a blue teamer. I switched from working with security/network devices into cyber security in mid 2021. In order for that to happen i've solved many HTB and THM machines and pursued courses and certifications (in order to learn!) like eCPPT, OSCP, OSWE, OSEP.
+Luka here, husband, father, musician and blue teamer who does as much penetration testing as possible and enjoys it. 
+I try to stay sharp on my CyberSec skills by mostly doing either CTFs or pursuing certifications where primary goal is learning(!) and not "a piece of paper".
+I have sucessfuly passed OSCP, OSWE, OSEP, eCPPTv2 certifications and finished Dante and Cybernetics ProLabs on [Hack the Box](https://app.hackthebox.com/).
 
-Even as a blue teamer i stillsolve Hack the Box boxes for which i'll be dropping Writeups here for machines that i've done AND found worthy having an actual writeup/reference in future.
-I'm also active on [BlueTeamLabsOnline](https://blueteamlabs.online/) and i'll try to publish writeups of retired machines as well.
+Besides also being active on [BlueTeamLabsOnline](https://blueteamlabs.online/) and [Hack the Box](https://app.hackthebox.com/) i currently work on CBBH Skill Path on Hackthebox Academy.
+I am not rushing that certification but rather taking it slowly and cross-learn same topics using [Web Security Academy at Portswitter](https://portswigger.net/web-security) and `The Web Application Hacker's Handbook, 2nd Edition` book. Plan is to drop notes on single attack group here as i move forward.
+
+After CBBH, i plan to have a go on [PNPT](https://certifications.tcm-sec.com/pnpt/) Certification, hopefully until the end of 2022.
 
 From time to time i intent to post guides from tools or techniques that i have found useful.
 
