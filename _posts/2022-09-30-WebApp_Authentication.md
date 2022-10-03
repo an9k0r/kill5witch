@@ -1,7 +1,7 @@
 ---
 title: Broken Authentication
 author:
-  name: kill5witch
+  name: eng4ge
   link: https://github.com/an9k0r
 date: 2022-09-30 09:00:00 +0200
 categories: [Notes, Web Application]
@@ -733,4 +733,36 @@ More on that topic can be found at [Portswigger Reset Password](https://portswig
 
 ## Password brute-force via password change
 
-... to be continued
+>  This lab's password change functionality makes it vulnerable to brute-force attacks. To solve the lab, use the list of candidate passwords to brute-force Carlos's account and access his "My account" page.
+> 
+> Your credentials: wiener:peter
+> 
+> Victim's username: carlos
+> 
+> [Candidate passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
+
+### Brute-Force via password change exploitation
+
+If we login, we have this form to update password:
+
+![picture 114](/assets/images/0cce991791d03a9ad6108ceb5bea7db3bb9de27a7fa15fed5d0066d5cab927b9.png)  
+
+... and this is how request looks like in Burp:
+
+![picture 115](/assets/images/57da45be3b5aba2befa42bcbb7d5348bb03a44a48abba26fd709f31fba1222b4.png)  
+
+> If we enter wrong password 2 times, account locks for 1 minute!
+> 
+> If we enter wrong password AND two different new passwords, we get another error message: `Current password is incorrect`!
+
+![picture 117](/assets/images/a1d91068dd154ab5557baf07a0d26c0f4b8848a0f194b255297d64cb1b5223f9.png)  
+
+Now let's brute-force using intruder!
+
+![picture 118](/assets/images/bf48c713eaec25f91295d3fb7ff9400f2bffbc489841be581e473e6c2eca08d7.png)  
+
+So get another response that `new password`s do not match, meaning we've found the `current password` = `jordan`.
+
+Lab has been solved.
+
+![picture 119](/assets/images/093a63fafcc7ee1097567fd15d57c9eb73b688a15e1e9781f7b46d68f32ab305.png)  

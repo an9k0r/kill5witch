@@ -1,7 +1,7 @@
 ---
 title: About
 icon: fas fa-info-circle
-order: 7
+order: 8
 ---
 Hello and welcome to my blog!
 
