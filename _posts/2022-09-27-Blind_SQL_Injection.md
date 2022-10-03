@@ -3,7 +3,7 @@ title: Blind SQL Injection
 author:
   name: kill5witch
   link: https://github.com/an9k0r
-date: 2022-09-03 09:00:00 +0200
+date: 2022-09-30 09:00:00 +0200
 categories: [Notes, Web Application]
 tags: [Notes, Web Application, Portswigger, SQL Injection, Blind SQL Injection]
 math: true
@@ -18,9 +18,9 @@ image:
 I wouldn't now dive into what SQL injection is, as there are plenty of sources out there which explain that better then i ever could. Regarding Blind SQL Injections let's just mention that results of our SQL Injection do not cary any intormation or any errors. We just have to rely on how the web application behaves.
 
 # Lab info
-As i am just going through [Portswigger's Web Academy](https://portswigger.net/web-security/) and i've just got to the [Blind SQL Injection part](https://portswigger.net/web-security/sql-injection/blind), i will just use the Labs provided by Portswigger.
+As i am just going through  (Sep.2022) and i've just got to the [Blind SQL Injection part](https://portswigger.net/web-security/sql-injection/blind), i will use the Labs provided by Portswigger. I might add other Labs here in the future or may link CTF boxes or other labs in the future.
 
-In total we have 6 Labs available:
+In total we have 6 Labs available on the [Portswigger's Web Academy](https://portswigger.net/web-security/):
 - Blind SQL injection with conditional responses
 - Blind SQL injection with conditional errors
 - Blind SQL injection with time delays
