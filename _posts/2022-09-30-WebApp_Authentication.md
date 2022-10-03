@@ -9,7 +9,7 @@ tags: [Notes, Web Application, Portswigger]
 math: true
 mermaid: true
 image:
-  src: /assets/images/
+  src: 
   width: 694
   height: 515
   alt: image alternative text
