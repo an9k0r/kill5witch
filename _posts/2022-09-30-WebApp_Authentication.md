@@ -4,7 +4,7 @@ author:
   name: eng4ge
   link: https://github.com/an9k0r
 date: 2022-09-30 09:00:00 +0200
-categories: [Notes, Web Application]
+categories: [Web Application, Broken Authentication]
 tags: [Notes, Web Application, Portswigger]
 math: true
 mermaid: true

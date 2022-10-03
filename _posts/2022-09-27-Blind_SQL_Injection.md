@@ -4,7 +4,7 @@ author:
   name: kill5witch
   link: https://github.com/an9k0r
 date: 2022-09-30 09:00:00 +0200
-categories: [Notes, Web Application]
+categories: [Web Application, SQL Injection]
 tags: [Notes, Web Application, Portswigger, SQL Injection, Blind SQL Injection]
 math: true
 mermaid: true
