@@ -3,7 +3,7 @@ title: Bussines Logic Vulnerabilities
 author:
   name: eng4ge
   link: https://github.com/an9k0r
-date: 2022-10-03 09:00:00 +0200
+date: 2022-10-06 09:00:00 +0200
 categories: [Web Application, Bussines Logic Vulnerabilities]
 tags: [Notes, Web Application, Portswigger]
 math: true
