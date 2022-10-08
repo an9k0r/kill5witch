@@ -104,3 +104,4 @@ As the password change is the only change it is very easy to spot.
 We can use the found password with `administrator` user to login and delete `carlos` to solve the lab.
 
 ![picture 236](/assets/images/817bcb22550adfc747d4ce378716e2e8f9e3de407649c75d43978244cebbc20a.png)  
+  
