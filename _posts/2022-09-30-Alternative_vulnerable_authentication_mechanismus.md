@@ -18,6 +18,15 @@ image:
 This post/writeup is all about the Authentication vulnerabilities or [Broken Authentication](https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication) if we follow [OWASP](https://owasp.org/) naming scheme. 
 
 I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-security/authentication) Labs, but i do intent do throw other labs and writeups here as well.
+
+# Labs
+- [Intro](#intro)
+- [Labs](#labs)
+- [Brute-forcing a stay-logged-in cookie](#brute-forcing-a-stay-logged-in-cookie)
+  - [Abusing `stay-logged-in` mechanismus](#abusing-stay-logged-in-mechanismus)
+- [Offline password cracking (weak hash used for remember-me cookie)](#offline-password-cracking-weak-hash-used-for-remember-me-cookie)
+  - [Enumeration first!](#enumeration-first)
+  - [Exploitation next!](#exploitation-next)
  
 # Brute-forcing a stay-logged-in cookie
 >  This lab allows users to stay logged in even after they close their browser session. The cookie used to provide this functionality is vulnerable to brute-forcing.

@@ -19,6 +19,17 @@ This post/writeup is all about the Directory Traversal vulnerabilities.
 
 I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-security/file-path-traversal) Labs, but i do intent do throw other labs and writeups here as well.
 
+# Labs
+## Portswigger
+|Lab's name|
+|---|
+|[File path traversal, simple case](#file-path-traversal-simple-case)|
+|[File path traversal, traversal sequences blocked with absolute path bypass](#file-path-traversal-traversal-sequences-blocked-with-absolute-path-bypass)|
+|[File path traversal, traversal sequences stripped non-recursively](#file-path-traversal-traversal-sequences-stripped-non-recursively)|
+|[File path traversal, traversal sequences stripped with superfluous URL-decode](#file-path-traversal-traversal-sequences-stripped-with-superfluous-url-decode)|
+|[File path traversal, validation of start of path](#file-path-traversal-validation-of-start-of-path)|
+|[File path traversal, validation of file extension with null byte bypass](#file-path-traversal-validation-of-file-extension-with-null-byte-bypass)|
+
 # File path traversal, simple case
 >  This lab contains a file path traversal vulnerability in the display of product images.
 > 

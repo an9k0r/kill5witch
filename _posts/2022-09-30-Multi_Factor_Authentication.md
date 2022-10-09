@@ -21,6 +21,20 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 > 2FA (two-factor authentication) is based on something you know and something you have and should be implemented in a way so they check the same factor in two/more diferent ways. 
 
+# Labs
+- [Intro](#intro)
+- [Labs](#labs)
+- [2FA simple bypass](#2fa-simple-bypass)
+  - [Bypassing the 2FA through bad auth. implementation](#bypassing-the-2fa-through-bad-auth-implementation)
+- [2FA broken logic](#2fa-broken-logic)
+  - [Vulnerable 2FA broken logic Enumeration](#vulnerable-2fa-broken-logic-enumeration)
+    - [1st Request to /login](#1st-request-to-login)
+    - [2nd Request to /login2](#2nd-request-to-login2)
+  - [Vulnerable 2FA broken logic Exploitation](#vulnerable-2fa-broken-logic-exploitation)
+- [2FA bypass using a brute-force attack](#2fa-bypass-using-a-brute-force-attack)
+  - [2FA Enumeration](#2fa-enumeration)
+  - [2FA Exploitation](#2fa-exploitation)
+
 # 2FA simple bypass
 >  This lab's two-factor authentication can be bypassed. You have already obtained a valid username and password, but do not have access to the user's 2FA verification code. To solve the lab, access Carlos's account page.
 > 

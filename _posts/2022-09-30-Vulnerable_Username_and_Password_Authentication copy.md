@@ -25,6 +25,29 @@ For successful authentication (considering we're not dealing with MFA) we need a
 - Error Messages (in response)
 - Response Times (if application does SQL check for username and password sequentially)
 
+# Labs
+- [Intro](#intro)
+- [Theory](#theory)
+- [Labs](#labs)
+- [Username enumeration via different responses](#username-enumeration-via-different-responses)
+  - [Enumeration](#enumeration)
+  - [Username Bruteforcing with Burp Intruder](#username-bruteforcing-with-burp-intruder)
+  - [Password Bruteforcing with `ffuf`](#password-bruteforcing-with-ffuf)
+- [Username enumeration via subtly different responses](#username-enumeration-via-subtly-different-responses)
+  - [Username brute-force using Intruder and Grep - Extract](#username-brute-force-using-intruder-and-grep---extract)
+  - [Password brute-force using Intruder and Grep - Extract](#password-brute-force-using-intruder-and-grep---extract)
+- [Username enumeration via response timing](#username-enumeration-via-response-timing)
+  - [Measuring response for existing and non-existing accounts with Burp Repeater](#measuring-response-for-existing-and-non-existing-accounts-with-burp-repeater)
+  - [Brute-Force password](#brute-force-password)
+- [Broken brute-force protection, IP block](#broken-brute-force-protection-ip-block)
+  - [Intro](#intro-1)
+  - [Trying simple password brute-force](#trying-simple-password-brute-force)
+  - [Solution #1 - Brute-force using python requests](#solution-1---brute-force-using-python-requests)
+  - [Solution #2 - Using Burp Intruder with customized username and password lists.](#solution-2---using-burp-intruder-with-customized-username-and-password-lists)
+  - [Solution #3 - Brute-force using Burp Turbo Intruder](#solution-3---brute-force-using-burp-turbo-intruder)
+- [Username enumeration via account lock](#username-enumeration-via-account-lock)
+- [Broken brute-force protection, multiple credentials per request](#broken-brute-force-protection-multiple-credentials-per-request)
+
 # Username enumeration via different responses
 >  This lab is vulnerable to username enumeration and password brute-force attacks. It has an account with a predictable username and password, which can be found in the following wordlists:
 > [Candidate usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames)

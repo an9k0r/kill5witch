@@ -33,6 +33,16 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 Previous input may be needed to be terminated using quotes, either single or double!
 
+# Labs
+## Portswigger
+| Lab's name|
+|---|
+|[OS command injection, simple case](#os-command-injection-simple-case)|
+|[Blind OS command injection with time delays](#blind-os-command-injection-with-time-delays)|
+|[Blind OS command injection with output redirection](#blind-os-command-injection-with-output-redirection)|
+|[Blind OS command injection with out-of-band interaction](#blind-os-command-injection-with-out-of-band-interaction)|
+|[Blind OS command injection with out-of-band data exfiltration](#blind-os-command-injection-with-out-of-band-data-exfiltration)|
+
 # OS command injection, simple case
 >  This lab contains an OS command injection vulnerability in the product stock checker.
 > 

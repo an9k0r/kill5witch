@@ -21,6 +21,23 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 > This post is all about vulnerable password reset implementations which can bypass authentication completely or allow the attacker to bypass other security implementations 
 
+# Labs
+- [Intro](#intro)
+- [Labs](#labs)
+- [Basic password reset poisoning - (Host Header)](#basic-password-reset-poisoning---host-header)
+  - [Enumeration - Password Reset](#enumeration---password-reset)
+  - [Exploitation - Password Account](#exploitation---password-account)
+- [Password reset broken logic](#password-reset-broken-logic)
+  - [Enumerating Password Reset mechanismus](#enumerating-password-reset-mechanismus)
+  - [Exploiting Password Reset Mechanismus](#exploiting-password-reset-mechanismus)
+- [Password reset poisoning via middleware - (X-Forwarded-For Header)](#password-reset-poisoning-via-middleware---x-forwarded-for-header)
+  - [Finding and exploiting the vulnerability](#finding-and-exploiting-the-vulnerability)
+- [Password brute-force via password change](#password-brute-force-via-password-change)
+  - [Brute-Force via password change exploitation](#brute-force-via-password-change-exploitation)
+- [Password reset poisoning via dangling markup](#password-reset-poisoning-via-dangling-markup)
+  - [Enumeration](#enumeration)
+  - [Exploitation](#exploitation)
+
 # Basic password reset poisoning - (Host Header)
 >  This lab is vulnerable to password reset poisoning. The user carlos will carelessly click on any links in emails that he receives. To solve the lab, log in to Carlos's account.
 > 
