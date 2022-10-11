@@ -21,16 +21,15 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 Information disclosure is all about disclosing information that was not intended to be exposed to user, like debug page for example or leaks data that is intended for privileged or other users.
 
-# Labs
+# TOC
 
-## Portswigger
-|Lab|Note|
-|---|---|
-|[Information disclosure in error messages](#information-disclosure-in-error-messages)| Check / Invoke Error messages |
-|[Information disclosure on debug page](#information-disclosure-on-debug-page)| Search for debug pages |
-|[Source code disclosure via backup files](#source-code-disclosure-via-backup-files)| Backup files **might** have a `.bak` Extension |
-|[Authentication bypass via information disclosure](#authentication-bypass-via-information-disclosure)| Check `HTTP TRACE` for headers|
-|[Information disclosure in version control history](#information-disclosure-in-version-control-history)| Check for `.git` |
+- [Intro](#intro)
+- [TOC](#toc)
+- [Information disclosure in error messages](#information-disclosure-in-error-messages)
+- [Information disclosure on debug page](#information-disclosure-on-debug-page)
+- [Source code disclosure via backup files](#source-code-disclosure-via-backup-files)
+- [Authentication bypass via information disclosure](#authentication-bypass-via-information-disclosure)
+- [Information disclosure in version control history](#information-disclosure-in-version-control-history)
 
 # Information disclosure in error messages
 > This lab's verbose error messages reveal that it is using a vulnerable version of a third-party framework. To solve the lab, obtain and submit the version number of this framework. 

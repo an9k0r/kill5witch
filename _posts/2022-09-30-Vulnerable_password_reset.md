@@ -22,6 +22,7 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 > This post is all about vulnerable password reset implementations which can bypass authentication completely or allow the attacker to bypass other security implementations 
 
 # Labs
+
 - [Intro](#intro)
 - [Labs](#labs)
 - [Basic password reset poisoning - (Host Header)](#basic-password-reset-poisoning---host-header)

@@ -1,5 +1,5 @@
 ---
-title: Bussines Logic Vulnerabilities
+title: Business Logic Vulnerabilities
 author:
   name: eng4ge
   link: https://github.com/an9k0r
@@ -15,29 +15,26 @@ image:
   alt: image alternative text
 ---
 # Intro
-This post/writeup is all about the Bussines Logic Vulnerabilities.
+This post/writeup is all about the Business Logic Vulnerabilities.
 
 I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-security/logic-flaws) Labs, but i do intent do throw other labs and writeups here as well.
 
 Business logic vulnerabilities are flaws in the design which usually get discovered by using the web application in a way that was not intended to be used. E.g., process from checking what is in the cart to the payment.
 
-# Labs
-## Portswigger
-| Lab's name |
-| --- |
-|[Excessive trust in client-side controls - define the price from the client](#excessive-trust-in-client-side-controls---define-the-price-from-the-client)|
-|[High-level logic vulnerability - Set product quantity in negative](#high-level-logic-vulnerability---set-product-quantity-in-negative)|
-|[Low-level logic flaw - Integer Overflow](#low-level-logic-flaw---integer-overflow)|
-|__[Solution #1 - simple Intruder and manual browser check](#solution-1---simple-intruder-and-manual-browser-check)|
-|__[Solution #2 - Intruder with consequent request to check total price](#solution-2---intruder-with-consequent-request-to-check-total-price)|
-|[Inconsistent handling of exceptional input - email address gets trimmed after 255 characters while registering](#inconsistent-handling-of-exceptional-input---email-address-gets-trimmed-after-255-characters-while-registering)|
-|[Inconsistent security controls - change email address to gain access to internal admin panel](#inconsistent-security-controls---change-email-address-to-gain-access-to-internal-admin-panel)|
-|[Weak isolation on dual-use endpoint - Removal of current-password parameters while changing password](#weak-isolation-on-dual-use-endpoint---removal-of-current-password-parameters-while-changing-password)|
-|[Insufficient workflow validation](#insufficient-workflow-validation)|
-|[Authentication bypass via flawed state machine - exploiting default behaviour](#authentication-bypass-via-flawed-state-machine---exploiting-default-behaviour)|
-|[Flawed enforcement of business rules - alternating coupon codes](#flawed-enforcement-of-business-rules---alternating-coupon-codes)|
-|[Infinite money logic flaw](#infinite-money-logic-flaw)|
-|[Authentication bypass via encryption oracle](#authentication-bypass-via-encryption-oracle)|
+- [Intro](#intro)
+- [Excessive trust in client-side controls - define the price from the client](#excessive-trust-in-client-side-controls---define-the-price-from-the-client)
+- [High-level logic vulnerability - Set product quantity in negative](#high-level-logic-vulnerability---set-product-quantity-in-negative)
+- [Low-level logic flaw - Integer Overflow](#low-level-logic-flaw---integer-overflow)
+  - [Solution #1 - simple Intruder and manual browser check](#solution-1---simple-intruder-and-manual-browser-check)
+  - [Solution #2 - Intruder with consequent request to check total price](#solution-2---intruder-with-consequent-request-to-check-total-price)
+- [Inconsistent handling of exceptional input - email address gets trimmed after 255 characters while registering](#inconsistent-handling-of-exceptional-input---email-address-gets-trimmed-after-255-characters-while-registering)
+- [Inconsistent security controls - change email address to gain access to internal admin panel](#inconsistent-security-controls---change-email-address-to-gain-access-to-internal-admin-panel)
+- [Weak isolation on dual-use endpoint - Removal of current-password parameters while changing password](#weak-isolation-on-dual-use-endpoint---removal-of-current-password-parameters-while-changing-password)
+- [Insufficient workflow validation](#insufficient-workflow-validation)
+- [Authentication bypass via flawed state machine - exploiting default behaviour](#authentication-bypass-via-flawed-state-machine---exploiting-default-behaviour)
+- [Flawed enforcement of business rules - alternating coupon codes](#flawed-enforcement-of-business-rules---alternating-coupon-codes)
+- [Infinite money logic flaw](#infinite-money-logic-flaw)
+- [Authentication bypass via encryption oracle](#authentication-bypass-via-encryption-oracle)
 
 # Excessive trust in client-side controls - define the price from the client
 

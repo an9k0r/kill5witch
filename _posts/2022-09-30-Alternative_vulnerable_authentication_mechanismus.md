@@ -19,9 +19,10 @@ This post/writeup is all about the Authentication vulnerabilities or [Broken Aut
 
 I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-security/authentication) Labs, but i do intent do throw other labs and writeups here as well.
 
-# Labs
+# TOC
+
 - [Intro](#intro)
-- [Labs](#labs)
+- [TOC](#toc)
 - [Brute-forcing a stay-logged-in cookie](#brute-forcing-a-stay-logged-in-cookie)
   - [Abusing `stay-logged-in` mechanismus](#abusing-stay-logged-in-mechanismus)
 - [Offline password cracking (weak hash used for remember-me cookie)](#offline-password-cracking-weak-hash-used-for-remember-me-cookie)

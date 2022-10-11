@@ -25,10 +25,11 @@ For successful authentication (considering we're not dealing with MFA) we need a
 - Error Messages (in response)
 - Response Times (if application does SQL check for username and password sequentially)
 
-# Labs
+# TOC
+
 - [Intro](#intro)
 - [Theory](#theory)
-- [Labs](#labs)
+- [TOC](#toc)
 - [Username enumeration via different responses](#username-enumeration-via-different-responses)
   - [Enumeration](#enumeration)
   - [Username Bruteforcing with Burp Intruder](#username-bruteforcing-with-burp-intruder)
