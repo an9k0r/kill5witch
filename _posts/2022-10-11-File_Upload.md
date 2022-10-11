@@ -18,3 +18,8 @@ image:
 This post/writeup is all about the File Upload Vulnerabilities.
 
 I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-security/file-upload) Labs, but i do intent do throw other labs and writeups here as well.
+
+## TOC
+
+- [Intro](#intro)
+  - [TOC](#toc)

@@ -21,6 +21,25 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 Information disclosure is all about disclosing information that was not intended to be exposed to user, like debug page for example or leaks data that is intended for privileged or other users.
 
+## TOC
+
+- [Intro](#intro)
+  - [TOC](#toc)
+- [Theory](#theory)
+- [Unprotected admin functionality](#unprotected-admin-functionality)
+- [Unprotected admin functionality with unpredictable URL](#unprotected-admin-functionality-with-unpredictable-url)
+- [User role controlled by request parameter](#user-role-controlled-by-request-parameter)
+- [User role can be modified in user profile](#user-role-can-be-modified-in-user-profile)
+- [URL-based access control can be circumvented](#url-based-access-control-can-be-circumvented)
+- [Method-based access control can be circumvented](#method-based-access-control-can-be-circumvented)
+- [User ID controlled by request parameter](#user-id-controlled-by-request-parameter)
+- [User ID controlled by request parameter, with unpredictable user IDs](#user-id-controlled-by-request-parameter-with-unpredictable-user-ids)
+- [User ID controlled by request parameter with data leakage in redirect](#user-id-controlled-by-request-parameter-with-data-leakage-in-redirect)
+- [User ID controlled by request parameter with password disclosure](#user-id-controlled-by-request-parameter-with-password-disclosure)
+- [Insecure direct object references](#insecure-direct-object-references)
+- [Multi-step process with no access control on one step](#multi-step-process-with-no-access-control-on-one-step)
+- [Referer-based access control](#referer-based-access-control)
+
 # Theory
 
 Access control (or authorization) is the application of constraints on who (or what) can perform attempted actions or access resources that they have requested. In the context of web applications, access control is dependent on authentication and session management:

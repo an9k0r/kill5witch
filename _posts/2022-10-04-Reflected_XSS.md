@@ -17,6 +17,19 @@ image:
 # Intro
 This post is dedicated to XSS related Labs at [Portswigger Web Academy](https://portswigger.net/web-security/cross-site-scripting/reflected)
 
+## TOC
+
+- [Intro](#intro)
+  - [TOC](#toc)
+- [Finding a XSS](#finding-a-xss)
+- [Reflected XSS into HTML context with nothing encoded](#reflected-xss-into-html-context-with-nothing-encoded)
+- [Reflected XSS into attribute with angle brackets HTML-encoded](#reflected-xss-into-attribute-with-angle-brackets-html-encoded)
+- [Reflected XSS in canonical link tag](#reflected-xss-in-canonical-link-tag)
+- [Reflected XSS into a JavaScript string with single quote and backslash escaped](#reflected-xss-into-a-javascript-string-with-single-quote-and-backslash-escaped)
+- [Reflected XSS into a JavaScript string with angle brackets HTML encoded](#reflected-xss-into-a-javascript-string-with-angle-brackets-html-encoded)
+- [Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped](#reflected-xss-into-a-javascript-string-with-angle-brackets-and-double-quotes-html-encoded-and-single-quotes-escaped)
+- [Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped](#reflected-xss-into-a-template-literal-with-angle-brackets-single-double-quotes-backslash-and-backticks-unicode-escaped)
+
 # Finding a XSS
 
 - Test every endpoint
@@ -31,19 +44,6 @@ This post is dedicated to XSS related Labs at [Portswigger Web Academy](https://
 - Test the attack in a browser. 
 
 Reference: https://portswigger.net/web-security/cross-site-scripting/reflected
-
-# TOC
-
-- [Intro](#intro)
-- [Finding a XSS](#finding-a-xss)
-- [TOC](#toc)
-- [Reflected XSS into HTML context with nothing encoded](#reflected-xss-into-html-context-with-nothing-encoded)
-- [Reflected XSS into attribute with angle brackets HTML-encoded](#reflected-xss-into-attribute-with-angle-brackets-html-encoded)
-- [Reflected XSS in canonical link tag](#reflected-xss-in-canonical-link-tag)
-- [Reflected XSS into a JavaScript string with single quote and backslash escaped](#reflected-xss-into-a-javascript-string-with-single-quote-and-backslash-escaped)
-- [Reflected XSS into a JavaScript string with angle brackets HTML encoded](#reflected-xss-into-a-javascript-string-with-angle-brackets-html-encoded)
-- [Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped](#reflected-xss-into-a-javascript-string-with-angle-brackets-and-double-quotes-html-encoded-and-single-quotes-escaped)
-- [Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped](#reflected-xss-into-a-template-literal-with-angle-brackets-single-double-quotes-backslash-and-backticks-unicode-escaped)
 
 # Reflected XSS into HTML context with nothing encoded
 

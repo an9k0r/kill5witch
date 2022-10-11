@@ -21,10 +21,10 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 Information disclosure is all about disclosing information that was not intended to be exposed to user, like debug page for example or leaks data that is intended for privileged or other users.
 
-# TOC
+## TOC
 
 - [Intro](#intro)
-- [TOC](#toc)
+  - [TOC](#toc)
 - [Information disclosure in error messages](#information-disclosure-in-error-messages)
 - [Information disclosure on debug page](#information-disclosure-on-debug-page)
 - [Source code disclosure via backup files](#source-code-disclosure-via-backup-files)

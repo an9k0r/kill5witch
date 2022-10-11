@@ -21,10 +21,10 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 > 2FA (two-factor authentication) is based on something you know and something you have and should be implemented in a way so they check the same factor in two/more diferent ways. 
 
-# Labs
+## TOC
 
 - [Intro](#intro)
-- [Labs](#labs)
+  - [TOC](#toc)
 - [2FA simple bypass](#2fa-simple-bypass)
   - [Bypassing the 2FA through bad auth. implementation](#bypassing-the-2fa-through-bad-auth-implementation)
 - [2FA broken logic](#2fa-broken-logic)

@@ -21,7 +21,9 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 Business logic vulnerabilities are flaws in the design which usually get discovered by using the web application in a way that was not intended to be used. E.g., process from checking what is in the cart to the payment.
 
+## TOC
 - [Intro](#intro)
+  - [TOC](#toc)
 - [Excessive trust in client-side controls - define the price from the client](#excessive-trust-in-client-side-controls---define-the-price-from-the-client)
 - [High-level logic vulnerability - Set product quantity in negative](#high-level-logic-vulnerability---set-product-quantity-in-negative)
 - [Low-level logic flaw - Integer Overflow](#low-level-logic-flaw---integer-overflow)
