@@ -32,19 +32,19 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 We can notice that we can check the stock of any product.
 
-![picture 9](images/f95e835f5f9778a4c60c22a5f1129cd645138598cda8358b1a650d3150737171.png)  
+![picture 9](/assets/images/f95e835f5f9778a4c60c22a5f1129cd645138598cda8358b1a650d3150737171.png)  
 
 As it can be seen above, it seems like a normal response, however let's check how this looks like in Burp.
 
-![picture 10](images/b5c24ed135a8ce54123b2731f334fd07daa5052b15be8a8a277a555b9b76a79b.png)  
+![picture 10](/assets/images/b5c24ed135a8ce54123b2731f334fd07daa5052b15be8a8a277a555b9b76a79b.png)  
 
 We can see that we have URL in the POST body and response that corresponds with the one seen on the webpage, but it looks like we can trigger request to any url from the client, so let us do exactly that.
 
-![picture 11](images/49b9cc3e08804e2281a5908a2efa478a2673d059cfdf956c981e82d2b355efe5.png)  
+![picture 11](/assets/images/49b9cc3e08804e2281a5908a2efa478a2673d059cfdf956c981e82d2b355efe5.png)  
 
 As seen above, our request does show contents of the `/admin` page and the path to delete the `carlos` user in order to solve the lab is served on a silver plate ==> `/admin/delete?username=carlos`
 
-![picture 12](images/b0da69d0c1bc7e62d02a3094970a02468c9f8251c37ddec965aede45f6d0bddb.png)  
+![picture 12](/assets/images/b0da69d0c1bc7e62d02a3094970a02468c9f8251c37ddec965aede45f6d0bddb.png)  
 
 # Basic SSRF against another back-end system
 >  This lab has a stock check feature which fetches data from an internal system.
@@ -53,19 +53,19 @@ As seen above, our request does show contents of the `/admin` page and the path 
 
 We have same "Check stock" option, same is in the previous exercise:
 
-![picture 13](images/40774c57feb38f2008bf422666107671983671c09a64cbe097244eb69f9f4a40.png)  
+![picture 13](/assets/images/40774c57feb38f2008bf422666107671983671c09a64cbe097244eb69f9f4a40.png)  
 
 Vulnerability also appears to be the same, we just now don't know on which IP the `admin` interface resides. This is something where `Burp Intruder` might help us find that out.
 
-![picture 14](images/02a34ba98c519275ed1e137ceb13fc99552315319ca05824d6a8ade735d97f5d.png)  
+![picture 14](/assets/images/02a34ba98c519275ed1e137ceb13fc99552315319ca05824d6a8ade735d97f5d.png)  
 
 Use `Numbers` as a payload set.
 
-![picture 15](images/1ad0cbb12ca88cc21b60cf645f8aa75536f7d16d2c0a9d08dabdeb825df02a47.png)  
+![picture 15](/assets/images/1ad0cbb12ca88cc21b60cf645f8aa75536f7d16d2c0a9d08dabdeb825df02a47.png)  
 
 I've got a git at `.189`
 
-![picture 16](images/30bf7a6e360043f4dee518e8e8c03d4ddb3978636f60b0725341bbdeae3321e4.png)  
+![picture 16](/assets/images/30bf7a6e360043f4dee518e8e8c03d4ddb3978636f60b0725341bbdeae3321e4.png)  
 
 Now delete `carlos` in order to solve the lab `/admin/delete?username=carlos`
 
