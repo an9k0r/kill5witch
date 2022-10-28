@@ -1,5 +1,5 @@
 ---
-title: Server-side request forgery (SSRF)
+title: (TryHackMe) - PWN101
 author:
   name: eng4ge
   link: https://github.com/an9k0r
@@ -233,6 +233,7 @@ Simply by running the binary, we get a menu. While choosing `3) General`  we get
 ![picture 19](/assets/images/59b53b3195fa6e3503cfb0c5794bbb689d0af929afa2dbeb3c878f814a7cf1cc.png)  
 
 ## File
+
 ```
 luka@yurei:~/Desktop/thm/pwn103$ file pwn103.pwn103 
 pwn103.pwn103: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=3df2200610f5e40aa42eadb73597910054cf4c9f, for GNU/Linux 3.2.0, not stripped
@@ -277,7 +278,7 @@ In order to reach the return address, we need 8 more bytes (64-bit!) so 28 in to
 
 Because of [MOVAPS](https://www.cameronwickes.co.uk/stack-alignment-ubuntu-18-04-movaps/) issue we can add another RET instruction before actual payload call.
 
-# Exploit (local)
+## Exploit (local)
 
 ```python
 from pwn import *
