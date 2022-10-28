@@ -70,11 +70,91 @@ I've got a git at `.189`
 Now delete `carlos` in order to solve the lab `/admin/delete?username=carlos`
 
 # SSRF with blacklist-based input filter
+>  This lab has a stock check feature which fetches data from an internal system.
+> 
+> To solve the lab, change the stock check URL to access the admin interface at http://localhost/admin and delete the user carlos.
+> 
+> The developer has deployed two weak anti-SSRF defenses that you will need to bypass. 
+
+Like the previous lab, start the burp in the background and check the stock as in previous labs.
+
+![picture 78](/assets/images/291dbd57ae44152e9b0a8f49f911d59ae8fe579bd20bda0d5a9c481f7ffc8246.png)  
+
+We can enter `http://127.1` and observe that side will get loaded
+
+![picture 79](/assets/images/1f92e0498a5c64d31a71a0809a3af52e8d67d70da2e7d1ec2a1e0133c0d41b1c.png)  
+
+If we add `http://127.1/admin`, we would see a `"External stock check blocked for security reasons"` Error, so admin appears to be on a blacklist.
+
+Double encoding does the job.
+
+![picture 80](/assets/images/05adb953a3787f02fc6907cd0ef6304370bb16cd387ea5188a96ab8106372eba.png)  
+
+In order to solve the lab, following request was issued
+```
+stockApi=http%3a//127.1/%25%36%31%25%36%34%25%36%64%25%36%39%25%36%65/delete?username=carlos
+```
 
 # SSRF with whitelist-based input filter
 
-# Blind SSRF with out-of-band detection
+>  This lab has a stock check feature which fetches data from an internal system.
+> 
+> To solve the lab, change the stock check URL to access the admin interface at http://localhost/admin and delete the user carlos.
+> 
+> The developer has deployed an anti-SSRF defense you will need to bypass. 
+
+In this lab, we again have to exploit the `Check Stock` function.
+
+Let's do that and observe the request in Burp.
+
+![picture 81](/assets/images/3013024963805842cfde52e95bfec20ef93aa6128845a34901dd14783b96acd5.png)  
+
+Send the request to repeater and try some payload like `http://127.0.0.1`:
+
+![picture 82](/assets/images/495347c808d7a01f2d7a7e44de5e7cc2dc6b216edb0e8a7f0d6f166fbe0571a6.png)  
+
+So we need to keep `stock.weliketoshop.net` in the SSRF Request.
+
+Adding a parameter or puting the `stock.weliketoshop.net` after `#` did not work.
+
+- `stockApi=http://e@stock.weliketoshop.net` = WORKS
+- `http://127.0.0.1e@stock.weliketoshop.net` still WORKS
+
+- `stockApi=http://127.0.0.1%25%32%33@stock.weliketoshop.net` WORKS where `%25%32%33` is just double-encoded `#`
+- `stockApi=http://127.0.0.1%25%32%33@stock.weliketoshop.net/admin` WORKS
+
+![picture 83](/assets/images/07f136382e11b3c62d64e03b1e65b06ab7048281a09c4bdbd8c2eb5eb315e3f3.png)  
+
+Now it should be self-explainatory what to do to delete `carlos`.
 
 # SSRF with filter bypass via open redirection vulnerability
 
+>  This lab has a stock check feature which fetches data from an internal system.
+> 
+> To solve the lab, change the stock check URL to access the admin interface at http://192.168.0.12:8080/admin and delete the user carlos.
+> 
+> The stock checker has been restricted to only access the local application, so you will need to find an open redirect affecting the application first. 
+
+Just like before, start the lab, choose a product, click on `Check stock` while having Burp open in the background. Let's examine the request:
+
+![picture 84](/assets/images/e705b06965b454b5aafc534d84e5c3b217d9f5c190d2cf8d0097c4e987d5df69.png)  
+
+While checking the application following comes up
+```
+/product/nextProduct?currentProductId=1&path=/product?productId=2 
+```
+
+![picture 87](/assets/images/6ed54be6f0d15190f76bf5c2eac509d07b3b48277829f939d5375f9d78a840ca.png)  
+
+We've gotten into the `admin` portal! Can we delete `carlos`?
+
+Yes we can!
+
+![picture 86](/assets/images/d177b8b941032f170ac4786026d88382b79398829e61d36e48f65d56aeb56a3d.png)  
+
+
+# Blind SSRF with out-of-band detection
+> Collaborator is needed which is why this lab will be done later at some point
+
 # Blind SSRF with Shellshock exploitation
+> Collaborator is needed which is why this lab will be done later at some point
