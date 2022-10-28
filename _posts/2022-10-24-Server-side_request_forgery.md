@@ -63,7 +63,7 @@ Use `Numbers` as a payload set.
 
 ![picture 15](/assets/images/1ad0cbb12ca88cc21b60cf645f8aa75536f7d16d2c0a9d08dabdeb825df02a47.png)  
 
-I've got a git at `.189`
+I've got a hit at `.189`:
 
 ![picture 16](/assets/images/30bf7a6e360043f4dee518e8e8c03d4ddb3978636f60b0725341bbdeae3321e4.png)  
 

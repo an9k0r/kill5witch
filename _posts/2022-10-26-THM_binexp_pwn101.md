@@ -9,15 +9,12 @@ tags: [Notes, Binary Exploitation, CTF]
 math: true
 mermaid: true
 image:
-  src: 
+  src: /assets/images/4bada98203bf1c5f6b6dc7b2ea8480cc8fa44360b26ea15eda997c64462b16c0.png
   width: 694
   height: 515
   alt: image alternative text
 ---
-It's all about Binary Exploitation. As i haven't done that in a while i thought it would be nice to go back to TryHackMe and do some challenges there. I can only recommend the [PWN101](https://tryhackme.com/room/pwn101) as it's about the right level for a refresher but it expects some knowledge to already be there so beware. Choose another room if you feel lost!
-
-![picture 1](/assets/images/4bada98203bf1c5f6b6dc7b2ea8480cc8fa44360b26ea15eda997c64462b16c0.png)  
-
+This is all about Binary Exploitation. As i haven't done that in a while i thought it would be nice to go back to TryHackMe and do some challenges there. I can only recommend the [PWN101](https://tryhackme.com/room/pwn101) as it's about the right level for a refresher but it expects some knowledge to already be there so beware. Choose another room if you feel lost!
 
 # PWN101.pwn101 - Stack BOF - Straight to System Shell
 
