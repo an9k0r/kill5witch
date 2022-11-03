@@ -1,5 +1,5 @@
 ---
-title: Server-side request forgery (SSRF)
+title: (Portswigger/WebAcademy) - Server-side request forgery (SSRF)
 author:
   name: eng4ge
   link: https://github.com/an9k0r
@@ -23,6 +23,13 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 
 - [Intro](#intro)
   - [TOC](#toc)
+- [Basic SSRF against the local server](#basic-ssrf-against-the-local-server)
+- [Basic SSRF against another back-end system](#basic-ssrf-against-another-back-end-system)
+- [SSRF with blacklist-based input filter](#ssrf-with-blacklist-based-input-filter)
+- [SSRF with whitelist-based input filter](#ssrf-with-whitelist-based-input-filter)
+- [SSRF with filter bypass via open redirection vulnerability](#ssrf-with-filter-bypass-via-open-redirection-vulnerability)
+- [Blind SSRF with out-of-band detection](#blind-ssrf-with-out-of-band-detection)
+- [Blind SSRF with Shellshock exploitation](#blind-ssrf-with-shellshock-exploitation)
 
 # Basic SSRF against the local server
 >  This lab has a stock check feature which fetches data from an internal system.
