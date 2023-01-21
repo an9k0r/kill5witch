@@ -1,5 +1,5 @@
 ---
-title: (Portswigger/WebAcademy) - crAPI Writeup
+title: (Portswigger/WebAcademy) - vAPI Writeup
 author:
   name: eng4ge
   link: https://github.com/an9k0r
