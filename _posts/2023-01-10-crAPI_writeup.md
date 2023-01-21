@@ -17,19 +17,22 @@ image:
 # Intro
 This post is all about the crAPI which is [OWASP's vulnerable web API application](https://github.com/OWASP/crAPI). It has few [challenges](https://github.com/OWASP/crAPI/blob/develop/docs/challenges.md) across all TOP 10 API Vulnerabilities. In total 15 challenges/vulnerabilities and 2 secret ones.
 
-> **Overview | crAPI**
+> **Overview - crAPI**
 > 
 > At a high level, the crAPI application is modeled as a B2C application that allows any user to get their car servicing done by a car mechanic. A user can create an account on the WebApp, manage his/her cars, search for car mechanics, submit servicing request for any car, and purchase car accessories from the vendor. The WebApp also has a community section where users can contribute with blog posts and comments.
 > 
 > The crAPI application, by design, does not implement all of its functionalities in the most secure manner. In other words, it deliberately exposes security vulnerabilities that can be exploited by any security enthusiast who is playing with the application. For more details on the vulnerabilities see the challenges.md
 >
-> Source: **https://github.com/OWASP/crAPI/blob/develop/docs/overview.md**
+> Source: https://github.com/OWASP/crAPI/blob/develop/docs/overview.md
+
 ---
+
 **The Plan**
 
 I'll start with recon (for completion purposes) and then i'll document each finding under each vulnerability type. 
 
 I'll be using Kali Linux and following tools:
+
 - Burp Suite Community
 - Postman
 - ffuf
