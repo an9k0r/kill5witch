@@ -42,7 +42,7 @@ I'll be using Kali Linux and following tools:
 ## TOC
 - [Intro](#intro)
   - [TOC](#toc)
-- [Start - Login and](#start---login-and)
+- [Recon](#recon)
   - [Setting up Postman to Reverse Engineer an API](#setting-up-postman-to-reverse-engineer-an-api)
   - [Mitmproxy and Swagger creation](#mitmproxy-and-swagger-creation)
 - [Challenges](#challenges)
@@ -79,13 +79,13 @@ I'll be using Kali Linux and following tools:
       - [JKU Misuse Vulnerability](#jku-misuse-vulnerability)
       - [KID Path Traversal Vulnerability](#kid-path-traversal-vulnerability)
 
-# Start - Login and 
+# Recon
 
 First of all, we should be able to get onto login page if our crAPI instance is working as intended:
 
 ![picture 1](/assets/images/a87775a3b848eb5936e581b443b99f18b65085d6bc5169d3b20e121de90f6e2b.png)  
 
-**I suggest naming the instance using /etc/hosts file into something like crapi.local or similar and point it to localhost/127.0.0.1, just to distinguish it better**
+*I've named the instance crapi.local*
 
 Let's have a Burp (or other proxy) running and let's sign up and login.
 
