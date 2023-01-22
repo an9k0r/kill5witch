@@ -1,5 +1,5 @@
 ---
-title: (Portswigger/WebAcademy) - crAPI Writeup
+title: Vulnerable Lab by OWASP - crAPI (Writeup)
 author:
   name: eng4ge
   link: https://github.com/an9k0r

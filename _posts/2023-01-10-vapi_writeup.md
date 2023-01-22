@@ -1,5 +1,5 @@
 ---
-title: (Portswigger/WebAcademy) - vAPI Writeup
+title: Vulnerable Lab by Tushar Kulkarni (@roottusk) - vAPI (writeup)
 author:
   name: eng4ge
   link: https://github.com/an9k0r
