@@ -66,7 +66,7 @@ docker run -it ubuntu bash
 This will start a container and open a bash shell inside it. 
 The `-it` flag tells Docker to run the container in interactive mode, and the bash command starts a bash shell.
 
-> If you want to persist data you might want to add volume but more on that below [Start a container and mount the volume:](#Start-a-container-and-mount-the-volume)
+> If you want to persist data you might want to add volume but more on that below in "Start a container and mount the volume"
 
 We can check running conainers using following command
 ```
