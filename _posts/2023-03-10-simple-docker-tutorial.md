@@ -4,8 +4,8 @@ author:
   name: eng4ge
   link: https://github.com/an9k0r
 date: 2023-01-15 09:00:00 +0200
-categories: [Web Application, JOAuth 2.0 authentication vulnerabilities]
-tags: [Notes, OAuth 2.0 authentication vulnerabilities, Portswigger]
+categories: [Blogging]
+tags: [Docker]
 math: true
 mermaid: true
 image:
