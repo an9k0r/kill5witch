@@ -14,17 +14,13 @@ image:
   height: 515
   alt: image alternative text
 ---
-# Intro
+# 1. Intro
 
 The reason for this post is simple. I use docker here and then and tend to forget some commands and then i might not be sure if i'll want to store the data (read: create a volume with it) or not, hence writing this post.
 
 It about the basics how to get a docker container running, about containrs and volumes to get me/you started.
 
-# Install Docker
-
-Things might change in the future, so check [here](https://docs.docker.com/get-docker/) on how to install docker on your platform.
-
-# Docker Basic Terminology 
+# 2. Docker Basic Terminology 
 
 Before diving into Docker commands, it's important to understand the terminology used in Docker. 
 
@@ -35,7 +31,14 @@ Here are some key terms:
 - **Dockerfile**: A text file that contains instructions to build an image.
 - **Registry**: A storage location for Docker images, such as Docker Hub.
 
-# Pull an image: 
+
+# 3. Install Docker
+
+Things might change in the future, so check [here](https://docs.docker.com/get-docker/) on how to install docker on your platform.
+
+
+
+# 4. Pull an image
 
 To get started with Docker, you'll need to pull an image from a registry. For example, to pull the official Ubuntu image, you can use the following command:
 
@@ -55,7 +58,7 @@ We can list images using following command:
 docker image ls
 ```
 
-# Run a container 
+# 5. Run a container 
 
 Once you have an image, you can use it to run a container. For example, to run a container from the Ubuntu image, use the following command (add `--name` handle if you want to add a name):
 
@@ -99,9 +102,9 @@ docker container stop <id>
 docker container rm <id>
 ```
 
-## Modify a container: 
+## 5.1 Modify a container: 
 
-You can modify a container by installing packages or editing files inside it. 
+In the container itself, you can modify a container by installing packages or editing files inside it. 
 
 For example, to install the nginx package in the container, use the following command:
 
@@ -110,11 +113,11 @@ apt-get update
 apt-get install nginx
 ```
 
-# Volumes - Saving Changes
+# 6. Volumes - Saving Changes
 
 There are few possibilities how to persist data from a newly created container.
 
-## Create an Image
+## 6.1 Create an Image
 
 Once you have made changes to a container, you can create a new image from it using the docker commit command. For example, to create a new image from the modified Ubuntu container, use the following command:
 
@@ -124,20 +127,20 @@ docker commit <container-id> my-ubuntu-image
 
 Replace `<container-id>` with the ID of the container you want to create an image from, and my-ubuntu-image with a name for the new image.
 
-## Create a Volume and save data to it
+## 6.2 Create a Volume and save data to it
 
 Docker volumes provide a way to store data outside of a container's filesystem and make it available to multiple containers. This allows you to separate data and application code, and makes it easier to manage and backup your data.
 
 Here's an example of how to use Docker volumes:
 
-### Create a volume:
+### 6.2.1 Create a volume:
 ```
 docker volume create mydata
 ```
 
 This will create a new volume named mydata.
 
-### Start a container and mount the volume
+### 6.2.2 Start a container and mount the volume
 
 ```
 docker run -it -v mydata:/app/data ubuntu bash
@@ -147,7 +150,7 @@ This will start a container from the ubuntu image, and mount the mydata volume a
 
 Make some changes inside the container, like creating new files or modifying existing ones, and save them to the mounted volume.
 
-### Stop and remove the container:
+### 6.2.3 Stop and remove the container:
 
 ```
 docker stop <container-id>
@@ -156,7 +159,7 @@ docker rm <container-id>
 
 Replace <container-id> with the ID of the container you want to remove.
 
-### Start a new container and mount the same volume:
+### 6.2.4 Start a new container and mount the same volume:
 
 ```
 docker run -it -v mydata:/app/data ubuntu bash
@@ -166,31 +169,43 @@ This will start a new container from the ubuntu image, and mount the mydata volu
 
 Note that Docker volumes can also be used to mount data from the host system or from other containers. For more information, see the Docker documentation on volumes: https://docs.docker.com/storage/volumes/
 
-## Dockerfile
+## 6.3 Dockerfile
 
-1. Create a new directory for your project, and create a file named Dockerfile inside it.
-2. In the Dockerfile, specify the base image you want to use for your new image
-   For example, if you want to use Ubuntu as the base image, you can add the following line to the Dockerfile:
+### 6.3.1 Create a new directory 
+Create a new directory for your project, and create a file named `Dockerfile` inside it.
+
+### 6.3.2 Specify the base image
+In the Dockerfile, specify the base image you want to use for your new image
+
+For example, if you want to use Ubuntu as the base image, you can add the following line to the Dockerfile:
 
 ```
 FROM ubuntu:latest
 ```
 
-3. Add any additional commands you want to run in the container to the Dockerfile. For example, if you want to install the nginx web server, you can add the following line to the Dockerfile:
+### 6.3.3 Add any additional commands 
+Add any additional commands you want to run in the container to the Dockerfile. For example, if you want to install the nginx web server, you can add the following line to the Dockerfile:
 
 ```
 RUN apt-get update && apt-get install -y nginx
 ```
-4. You can also specify environment variables, work directory, or add files to the container by adding ENV, WORKDIR, and COPY commands respectively.
-5. Save the Dockerfile and navigate to the directory in your terminal.
-6. Build the Docker image using the following command:
+
+You can also specify environment variables, work directory, or add files to the container by adding ENV, WORKDIR, and COPY commands respectively.
+
+### 6.3.4 Save the Dockerfile 
+Save the Dockerfile and navigate to the directory in your terminal.
+
+### 6.3.5 Build the Docker image using the following command
+Build the Docker image
+
 ```
 docker build -t my-image-name .
 ```
 
 The `-t` option specifies a name for the image, and the `.` at the end specifies the location of the Dockerfile.
 
-7. After building, you can start a new container from your custom image:
+### 6.3.6 Start a new container
+After building, you can start a new container from your custom image:
 
 ```
 docker run -it my-image-name bash
@@ -200,6 +215,6 @@ This will start a new container from the my-image-name image and run the bash co
 
 Note: It's important to keep your Dockerfile as simple and clean as possible, and to use best practices for building images. The Docker documentation provides many useful tips and best practices for Dockerfile creation: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 
-# Outro
+# 7. Outro
 
 It's impossible to cover all scenarios without writing very lenghty article, but hopefully the few commands helped you with your docker endeavours and if not, just [google](https://www.google.com/) or try asking [OpenGPT](https://openai.com/blog/chatgpt)
