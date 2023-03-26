@@ -1,5 +1,5 @@
 ---
-title: Reflected Cross-Site Scripting (XSS)
+title: (Portswigger/WebAcademy) - Reflected Cross-Site Scripting (XSS)
 author:
   name: eng4ge
   link: https://github.com/an9k0r
