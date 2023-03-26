@@ -15,9 +15,9 @@ image:
   alt: image alternative text
 ---
 # Intro
-This post/writeup is all about the JWT Token Vulnerabilities.
+This post/writeup is all about the stored XSS Vulnerabilities.
 
-I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-security/jwt) Labs, but i do intent do throw other labs and writeups here as well.
+I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-security/cross-site-scripting#stored-cross-site-scripting) Labs, but i do intent do throw other labs and writeups here as well.
 
 To learn more on the topic, please visit the article linked above at Portswigger's.
 
