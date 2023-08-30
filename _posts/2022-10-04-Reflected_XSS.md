@@ -29,6 +29,7 @@ This post is dedicated to XSS related Labs at [Portswigger Web Academy](https://
 - [Reflected XSS into a JavaScript string with angle brackets HTML encoded](#reflected-xss-into-a-javascript-string-with-angle-brackets-html-encoded)
 - [Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped](#reflected-xss-into-a-javascript-string-with-angle-brackets-and-double-quotes-html-encoded-and-single-quotes-escaped)
 - [Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped](#reflected-xss-into-a-template-literal-with-angle-brackets-single-double-quotes-backslash-and-backticks-unicode-escaped)
+- [Reflected XSS into HTML context with most tags and attributes blocked](#reflected-xss-into-html-context-with-most-tags-and-attributes-blocked)
 
 # Finding a XSS
 
@@ -170,3 +171,36 @@ Enter `<>"'()`
 Since we have injection into JavaScript Template literal, we don't need to terminat, but can use `${..}` like `${alert(document.domain)}` which also is solution for this lab.
 
 ![picture 152](/assets/images/d9052148dfffc6c7dd119da5787fb33f9b439d8ae53f20590385e2dce7cdabb1.png)  
+
+# Reflected XSS into HTML context with most tags and attributes blocked
+
+> This lab contains a reflected XSS vulnerability in the search functionality but uses a web application firewall (WAF) to protect against common XSS vectors.
+> 
+> To solve the lab, perform a cross-site scripting attack that bypasses the WAF and calls the print() function.
+> 
+> **Note**
+> 
+> Your solution must not require any user interaction. Manually causing print() to be called in your own browser will not solve the lab.
+
+Let's try something
+
+![picture 1](/assets/images/f941e7e855a6498a0f908b6aa900dd4f96652d546bcdae87c199714411768a4f.png)  
+
+If we input tags like a, img, script we'll get a message that Tag is not allowed. I will sent all Tags into intruder to see which might work.
+
+![picture 2](/assets/images/38a548f00ad442fde0ad397b3e0bdb3b8cde9383594a822e286e549aaca07aed.png)  
+
+We can take `body`. 
+
+Regarding events we can do same as it has been done with `tags`. We can just copy the events from [XSS cheatlist](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet#event-handlers-that-do-not-require-user-interaction) 
+
+![picture 3](/assets/images/cbfa5d8f49a5e5e53c933fcd5631894b547db16c695a38deddbae725365269de.png)  
+
+Now we would prefer an event where no user interaction is needed. If we take resize, we need a manual resize action, or else the payload won't trigger. Since we're sending this to a victim, we can esize a window of iframe.
+
+Payload:
+```html
+<iframe src="https://0a8200dd0430075fc1530929004900c8.web-security-academy.net/?search="><body onresize=print()>" onload=this.style.width='100px'>
+```
+
+![picture 4](/assets/images/f1786e7fe0dd8264c8cfe68f8607bc5607a0d6edcfe3418df5028cfb176a7d5b.png)  
