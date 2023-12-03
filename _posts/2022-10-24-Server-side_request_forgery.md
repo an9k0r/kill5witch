@@ -30,6 +30,7 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 - [SSRF with filter bypass via open redirection vulnerability](#ssrf-with-filter-bypass-via-open-redirection-vulnerability)
 - [Blind SSRF with out-of-band detection](#blind-ssrf-with-out-of-band-detection)
 - [Blind SSRF with Shellshock exploitation](#blind-ssrf-with-shellshock-exploitation)
+- [SSRF via flawed request parsing](#ssrf-via-flawed-request-parsing)
 
 # Basic SSRF against the local server
 >  This lab has a stock check feature which fetches data from an internal system.
@@ -161,7 +162,34 @@ Yes we can!
 
 
 # Blind SSRF with out-of-band detection
-> Collaborator is needed which is why this lab will be done later at some point
+> This site uses analytics software which fetches the URL specified in the Referer header when a product page is loaded.
+> 
+> To solve the lab, use this functionality to cause an HTTP request to the public Burp Collaborator server.
+
+This lab reacts with an server-side request forgery when we put out URL to the Referrer header.
+
+![picture 4](/assets/images/822d1fc05465ade58bff852614e5ec707aa32c70e0fbec7040bfd898d4418d7f.png)  
+
+![picture 3](/assets/images/1cf630a7f58560df9d8d815a5c6f747177b66717a3b4d5fbaf380686f2d2e07f.png)  
+
 
 # Blind SSRF with Shellshock exploitation
 > Collaborator is needed which is why this lab will be done later at some point
+
+# SSRF via flawed request parsing
+> This lab is vulnerable to routing-based SSRF due to its flawed parsing of the request's intended host. You can exploit this to access an insecure intranet admin panel located at an internal IP address.
+> To solve the lab, access the internal admin panel located in the 192.168.0.0/24 range, then delete the user carlos.
+
+There isn't much going on on the page, but as the title suggests it has something to do with how request is being parsed, and indeed, if we swap the host header and use the collaborators URL as path we get a callback (note the string in response which usually comes from collaborator):
+
+![picture 0](/assets/images/ac04946a235d6d5edb199b14c9e932368368e5a54a1ddaa9c1e881449eff5a88.png)  
+
+Now our job is simple, we just need an intruder to bruteforce the last octet in the `192.168.0.0/24`.
+
+When we've found the IP we can append `/admin` to the request and grab the form in order to delete `carlos` user.
+
+![picture 1](/assets/images/877c43c367784439df44a01868296a9ee93693dd35dd8485907591f62002e9ea.png)  
+
+Carlos has been deleted and lab has been solved.
+
+![picture 2](/assets/images/056a01047310b3efcfbe74f27fcfc84886f421279b838a8f7741380d98837aee.png)  

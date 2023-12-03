@@ -22,6 +22,15 @@ I'll be using primarily [Portswigger Web Academy](https://portswigger.net/web-se
 To learn more on the topic, please visit the article linked above at Portswigger's.
 
 ## TOC
+- [Intro](#intro)
+  - [TOC](#toc)
+- [Lab: Stored XSS into HTML context with nothing encoded](#lab-stored-xss-into-html-context-with-nothing-encoded)
+- [Exploiting cross-site scripting to steal cookies](#exploiting-cross-site-scripting-to-steal-cookies)
+- [Exploiting cross-site scripting to capture passwords](#exploiting-cross-site-scripting-to-capture-passwords)
+- [Exploiting cross-site scripting to perform CSRF](#exploiting-cross-site-scripting-to-perform-csrf)
+- [Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped](#stored-xss-into-onclick-event-with-angle-brackets-and-double-quotes-html-encoded-and-single-quotes-and-backslash-escaped)
+- [Stored XSS into anchor href attribute with double quotes HTML-encoded](#stored-xss-into-anchor-href-attribute-with-double-quotes-html-encoded)
+
 
 # Lab: Stored XSS into HTML context with nothing encoded
 
@@ -178,3 +187,9 @@ And this is how it got escaped:
 Alert has fired and lab has been solved.
 
 ![picture 5](/assets/images/57e85b8312bdcbd2c97324e3cb3c2df3e43d693ca98677ed0e2cd28948ef2e1b.png)  
+
+# Stored XSS into anchor href attribute with double quotes HTML-encoded
+
+> This lab contains a stored cross-site scripting vulnerability in the comment functionality. To solve this lab, submit a comment that calls the alert function when the comment author name is clicked.
+
+Injection in the `href` attribute ==> `javascript:alert(1)`.
